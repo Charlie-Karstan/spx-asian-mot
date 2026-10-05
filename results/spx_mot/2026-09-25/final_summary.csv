@@ -1,0 +1,2 @@
+mot_lower,mot_upper,mot_width,bs_price,bs_standard_error,heston_price,heston_standard_error,model_disagreement,relative_model_disagreement,bs_position_in_interval,heston_position_in_interval,width_full,width_reduced,width_final_only
+104.8308969646,138.3805085783,33.5496116137,123.5662500253,0.1699546007,124.8635367329,0.1081832497,1.2972867076,0.0386677116,0.5584372563,0.5971049680,33.5496116137,64.6927456030,146.4643525099

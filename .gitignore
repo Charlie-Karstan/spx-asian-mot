@@ -1,0 +1,18 @@
+# Local environments, credentials and editor caches.
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+.env
+.env.*
+.marketdata*
+
+# Vendor data stays local; redistribution rights have not been established.
+/data/raw/
+/data/archive/
+/data/processed/
+
+# Interrupted atomic result writes.
+/results/**/*.pending.json
+/results/**/*.pending.csv

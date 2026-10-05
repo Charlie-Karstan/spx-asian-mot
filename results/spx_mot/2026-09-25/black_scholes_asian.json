@@ -1,0 +1,70 @@
+{
+  "model": "Black-Scholes",
+  "observation_date": "2026-09-25",
+  "expirations": [
+    "2026-10-16",
+    "2026-10-30",
+    "2026-11-20",
+    "2026-12-18"
+  ],
+  "spot": 7743.4102,
+  "asian_strike": 7743.4102,
+  "asian_kind": "call",
+  "times": [
+    0.0,
+    0.0575342465753424,
+    0.0958904109589041,
+    0.1534246575342465,
+    0.2301369863013698
+  ],
+  "carry": [
+    1.0,
+    1.0018648773075702,
+    1.0033934491553056,
+    1.0052329101610806,
+    1.007910799579794
+  ],
+  "discount": [
+    1.0,
+    0.9975845650084272,
+    0.995874486613876,
+    0.99353525819764,
+    0.9895526588848572
+  ],
+  "terminal_discount": 0.9895526588848572,
+  "average_definition": "sum(0.5*(S[k]+S[k+1])*dt[k]) / (times[-1]-times[0])",
+  "parameters": {
+    "sigma": 0.1282397483706505
+  },
+  "calibration": {
+    "n_quotes": 160,
+    "n_calls": 52,
+    "n_puts": 108,
+    "quote_selection": "One side per maturity/strike, OTM preferred",
+    "weighting": "Residual / max(mid, 1 SPX point)",
+    "rmse": 11.234366923037623,
+    "weighted_rmse": 0.10145120610113502,
+    "max_absolute_error": 26.334259508307312,
+    "quotes_outside_bid_ask": 156,
+    "success": true,
+    "message": "Solution found.",
+    "nfev": 11
+  },
+  "n_paths": 500000,
+  "seed": 42,
+  "batch_size": 50000,
+  "antithetic": true,
+  "asian_price": 123.56625002530568,
+  "standard_error": 0.16995460071022386,
+  "confidence_interval_95": [
+    123.23313900791364,
+    123.89936104269772
+  ],
+  "independent_antithetic_pairs": 250000,
+  "runtime_seconds": 0.07560012501198798,
+  "warnings": [],
+  "mot_interval": [
+    104.83089696458401,
+    138.380508578262
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "model": "Heston",
+  "observation_date": "2026-09-25",
+  "expirations": [
+    "2026-10-16",
+    "2026-10-30",
+    "2026-11-20",
+    "2026-12-18"
+  ],
+  "spot": 7743.4102,
+  "asian_strike": 7743.4102,
+  "asian_kind": "call",
+  "times": [
+    0.0,
+    0.0575342465753424,
+    0.0958904109589041,
+    0.1534246575342465,
+    0.2301369863013698
+  ],
+  "carry": [
+    1.0,
+    1.0018648773075702,
+    1.0033934491553056,
+    1.0052329101610806,
+    1.007910799579794
+  ],
+  "discount": [
+    1.0,
+    0.9975845650084272,
+    0.995874486613876,
+    0.99353525819764,
+    0.9895526588848572
+  ],
+  "terminal_discount": 0.9895526588848572,
+  "average_definition": "sum(0.5*(S[k]+S[k+1])*dt[k]) / (times[-1]-times[0])",
+  "parameters": {
+    "v0": 0.008363584813303775,
+    "kappa": 19.9999999999657,
+    "theta": 0.023630397664157553,
+    "xi": 0.6493948126426664,
+    "rho": -0.9989999999999999
+  },
+  "calibration": {
+    "n_quotes": 160,
+    "n_calls": 52,
+    "n_puts": 108,
+    "quote_selection": "One side per maturity/strike, OTM preferred",
+    "weighting": "Residual / max(mid, 1 SPX point)",
+    "rmse": 1.340150251542954,
+    "weighted_rmse": 0.01022346228103485,
+    "max_absolute_error": 3.9193457001567253,
+    "quotes_outside_bid_ask": 131,
+    "success": true,
+    "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+    "attempts": [
+      {
+        "start": 1,
+        "success": true,
+        "message": "`ftol` termination condition is satisfied.",
+        "nfev": 44,
+        "cost": 0.0083619576298813
+      },
+      {
+        "start": 2,
+        "success": true,
+        "message": "`ftol` termination condition is satisfied.",
+        "nfev": 27,
+        "cost": 0.008361957629966214
+      },
+      {
+        "start": 3,
+        "success": true,
+        "message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+        "nfev": 51,
+        "cost": 0.008361957629625789
+      }
+    ],
+    "black_scholes_limit_max_error": 7.969447324285284e-11,
+    "fourier_convergence_max_error": 0.00028727998670063926,
+    "fourier_nodes": 258,
+    "fourier_cutoff": 512.0,
+    "feller_satisfied": true,
+    "parameters_at_bounds": [
+      "kappa",
+      "rho"
+    ]
+  },
+  "n_paths": 500000,
+  "seed": 42,
+  "batch_size": 50000,
+  "antithetic": true,
+  "asian_price": 124.86353673291708,
+  "standard_error": 0.10818324973040871,
+  "confidence_interval_95": [
+    124.65149756344549,
+    125.07557590238868
+  ],
+  "independent_antithetic_pairs": 250000,
+  "scheme": "Clipped full-truncation variance Euler; log-Euler normalized asset",
+  "max_internal_step": 0.000992063492063492,
+  "internal_steps_per_interval": [
+    58,
+    39,
+    58,
+    78
+  ],
+  "variance_clipping_fraction": 0.00017333047210300428,
+  "confidence_interval_scope": "MC sampling only; excludes Euler bias and calibration uncertainty",
+  "runtime_seconds": 2.811949250055477,
+  "warnings": [],
+  "mot_interval": [
+    104.83089696458401,
+    138.380508578262
+  ]
+}

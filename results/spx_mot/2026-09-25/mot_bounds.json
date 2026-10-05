@@ -1,0 +1,49 @@
+{
+  "observation_date": "2026-09-25",
+  "expirations": [
+    "2026-10-16",
+    "2026-10-30",
+    "2026-11-20",
+    "2026-12-18"
+  ],
+  "spot": 7743.4102,
+  "asian_strike": 7743.4102,
+  "asian_kind": "call",
+  "n_quotes": 320,
+  "n_x": 50,
+  "n_integral": 21,
+  "x_min": 6965.5237959891365,
+  "x_max": 8444.879392852317,
+  "solver_result": {
+    "lower": 104.83089696458401,
+    "upper": 138.380508578262,
+    "n_variables": 160200,
+    "n_equalities": 6600,
+    "n_inequalities": 640,
+    "lower_diagnostics": {
+      "max_equality_residual": 2.3239413811468077e-13,
+      "minimum_flow": -0.0,
+      "total_initial_outflow": 1.0,
+      "max_inequality_violation": 1.1368683772161603e-13,
+      "minimum_inequality_slack": -1.1368683772161603e-13
+    },
+    "upper_diagnostics": {
+      "max_equality_residual": 1.8596235662471372e-15,
+      "minimum_flow": -0.0,
+      "total_initial_outflow": 1.0000000000000004,
+      "max_inequality_violation": 4.263256414560601e-14,
+      "minimum_inequality_slack": -4.263256414560601e-14
+    },
+    "timings": {
+      "grid": 4.24706637498457,
+      "equalities": 0.28374429198447615,
+      "inequalities": 0.01997279201168567,
+      "objective": 0.09229912492446601,
+      "compile_total": 4.643086832948029,
+      "lower_solve": 56.346161500085145,
+      "upper_solve": 75.87925887503661,
+      "solve_total": 132.22822549997363,
+      "total": 136.87131233292166
+    }
+  }
+}

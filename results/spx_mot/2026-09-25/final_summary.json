@@ -1,0 +1,16 @@
+{
+  "mot_lower": 104.83089696458401,
+  "mot_upper": 138.380508578262,
+  "mot_width": 33.549611613677996,
+  "bs_price": 123.56625002530568,
+  "bs_standard_error": 0.16995460071022386,
+  "heston_price": 124.86353673291708,
+  "heston_standard_error": 0.10818324973040871,
+  "model_disagreement": 1.2972867076114056,
+  "relative_model_disagreement": 0.03866771164297201,
+  "bs_position_in_interval": 0.5584372563372197,
+  "heston_position_in_interval": 0.5971049679801917,
+  "width_full": 33.54961161367781,
+  "width_reduced": 64.69274560301879,
+  "width_final_only": 146.4643525098513
+}

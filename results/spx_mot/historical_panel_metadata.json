@@ -1,0 +1,2535 @@
+{
+  "settings": {
+    "months": [
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09"
+    ],
+    "target_dtes": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "n_x": 52,
+    "n_integral": 21,
+    "x_buffer_fraction_of_spot": 0.08,
+    "max_variables": 500000,
+    "solver": "Existing solve_asian_bounds / HiGHS IPM",
+    "solver_options": {
+      "time_limit": 180.0,
+      "run_crossover": "choose",
+      "primal_feasibility_tolerance": 1e-08,
+      "dual_feasibility_tolerance": 1e-08,
+      "ipm_optimality_tolerance": 1e-09
+    },
+    "residual_tolerance": 1e-06,
+    "asian_kind": "call",
+    "strike": "spot",
+    "average": "Trapezoidal arithmetic average on observation date and four actual expirations"
+  },
+  "source_sha256": {
+    "robust_pricing/asian/grid.py": "32408a8896e9a9bd135ef07c5f7f5cec652ae987bac81ac3c87594352bc34161",
+    "robust_pricing/asian/payoff.py": "df89c5738c4915979f6830f1ec2923c1bdd7fc3609adcadf2318f661af5dbc2c",
+    "robust_pricing/asian/solver.py": "d83fc38c97697ded637e17e13349f145a16122226bce608aaa602c569773a5ff",
+    "robust_pricing/asian/__init__.py": "4b00ff4b7d4493bfbb1cbb485a4984084eb417cefc5c6dc493a6f416ba0eb4ac",
+    "robust_pricing/asian/types.py": "448e6ab78ea824b811f70a930941b6a794610e79617e220e19a89e733a002045",
+    "robust_pricing/asian/validation.py": "30d159bdd58ca27bc7d410e0a653adc53ba34bdb3a682d52b207492b0966cc6d",
+    "market_data/cleaning.py": "a0c35f4ac66f2dd3a526b58fc9690fce979c7ddaa5bc2d2d5cca2dea8fdffaa4",
+    "market_data/parity.py": "98a3a33ef9eea8305805d2f067baed0972be9079b84b7f678e05ea6a6fbd3582",
+    "market_data/transform.py": "510112f7673ea5f11b823642afc172767332abd3199d1079bdd01cb8ab81a855",
+    "scripts/run_convergence.py": "974bbb759e55a7fc67147456b51d60a4142ad682e2c53066db47b5549e6d6e0e",
+    "scripts/run_historical_panel.py": "d9bc904dacd59d2c5cbae016a3d4f14e0702e37709fb74e848281b3e40468159"
+  },
+  "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+  "selection_rule": "Latest archived date in each month with valid data and a successful fixed-grid solve.",
+  "archive_root": "data/archive/marketdata",
+  "offline": true,
+  "attempts": [
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Feasible)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-29",
+      "input_sha256": {
+        "dte_030.csv": "727297d676a4e3b70302adb88fbf91fcfab8cabc5168946b3d4c6afdb567abd0",
+        "dte_060.csv": "407b35898fa1845ff70474cd4a516383b15b066328712f0e286d5c2637392f0d",
+        "dte_090.csv": "5fc2b99496e16caf14b6e3ae54cf65306bdff37c43972457a3972ef579b040fc",
+        "dte_120.csv": "3ce6d14e1af2dcf3473de1a90bbc4d7be0892ebc00d6a8818c36d5c3a4b23eef"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-28",
+      "input_sha256": {
+        "dte_030.csv": "fca963692804067214af71baacccf4b1a2b672164cb15854290193344350532e",
+        "dte_060.csv": "0f2314f10e66d771e1488ab865cf40c31a71f931424dcbeb3d041f03f2f2c990",
+        "dte_090.csv": "2177b20b6cc7a7283c87f3477f87dd0a4a47801bdd0abf64740a47052d74802b",
+        "dte_120.csv": "a54c842c408195e491e16808f83a642e94c5c2b16bece7a1cdc45b06dc408812"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-27",
+      "input_sha256": {
+        "dte_030.csv": "85f86e43780e934c8a7417d31d192ca8114826656ebf24359cf6aae3264d7c16",
+        "dte_060.csv": "450357619c1adc722e3a6d850d6811fb4c46fd5dda6e7a1137ee110a50ac9cd9",
+        "dte_090.csv": "a2e81f8e9866057375747889a50b85a817822850668eed50a70690a93dd106b7",
+        "dte_120.csv": "c5a2e7e5957cfe753432997579eaccb5b8b44601be24391294a8e30aa4581e35"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Feasible)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-26",
+      "input_sha256": {
+        "dte_030.csv": "71c7aaa3dc89f81cf7a1ff78bd53dd336a7a82d4547d2730aa35f9d8dffbba01",
+        "dte_060.csv": "82a7a19a613ef82da58ea9625fe2a19d19a72d51bc5bcaacf6d6466507377516",
+        "dte_090.csv": "247447917ab76dcfc9379910070aea40da48032484382f37956cff22a64530ad",
+        "dte_120.csv": "11389eff5339fd284a8d0b2517799ec0757535c6ad7ca4f569b396984d53d5bf"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Feasible)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-23",
+      "input_sha256": {
+        "dte_030.csv": "fea8c43db774303ce7f4a968f5c2b26e265e292c9727976184946a50a27f9800",
+        "dte_060.csv": "24d39b9bf97303fd3896720a18b50e2dabd77d2d2c2beb3da6bc5911bb6c82af",
+        "dte_090.csv": "e319ef85577fce648a7539a71acaa66ea0d7e81af9e566500910893c62385690",
+        "dte_120.csv": "c160f45fabe34bd32af2944777972e619bbfd02b041dabe0402b8df12a9ca37a"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-22",
+      "input_sha256": {
+        "dte_030.csv": "e895f97ed4d761d6a9b61c1937a910ab74a1f7f7f75bc9ef120ce5cb5298e83b",
+        "dte_060.csv": "a2e097657a4d1b72785383bf495a66bdf08a72a571196247b4e0ebc769a5a0b8",
+        "dte_090.csv": "c92468aa04382ef9879a45e0848b60fcec4e16ac5797af455dfae53bcb249c8b",
+        "dte_120.csv": "0bbe39b27b9bfce98eb56d3e98092b8ddbc0f7668cd57a80e8560f82b7e614b5"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-21",
+      "input_sha256": {
+        "dte_030.csv": "81b5bbafcc279db84e11a0c2fea12fb419e8f293caf0c3b957b7a8d3d04e804f",
+        "dte_060.csv": "d04ddad4204b16a79fe6adcf8a6b99fda4c9c142003a93164773cb0e2147d4f6",
+        "dte_090.csv": "63d47a461200567bfa1cb2792aff456aac2b8786da6144df88b0a964bc54f45a",
+        "dte_120.csv": "4fdb45298d4e12260f76e5d76ae5f2f9fb912a910aa0057cea81da47215b1670"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-20",
+      "input_sha256": {
+        "dte_030.csv": "023ec0b6c35599add61af0d9894987ccb2032020aa93aa2174b96a5aa6b76fa1",
+        "dte_060.csv": "da196900f0a5b5b90928a85c366ada9d40259301c19a792026994bf97a69fd9f",
+        "dte_090.csv": "426a261b24563df273517c5669761803a2a981edbd8f4b3d126bfe5e75d69292",
+        "dte_120.csv": "4685f556044abe9f431d6bbea24a120294668f1c977903cf46b21e9ea36c5ed0"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The HiGHS status code was not recognized. (HiGHS Status 15: model_status is Unknown; primal_status is Feasible)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-19",
+      "input_sha256": {
+        "dte_030.csv": null,
+        "dte_060.csv": null,
+        "dte_090.csv": null,
+        "dte_120.csv": null
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "ValueError: Missing archived chains: dte_030.csv, dte_060.csv, dte_090.csv, dte_120.csv"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-16",
+      "input_sha256": {
+        "dte_030.csv": "a9937c31235d035769908e85da0aae7a2d9f704ee668412ac06d8eb794eb58f5",
+        "dte_060.csv": "d088d35acbd86f322f9c577b01a15f56557f5d4c43339ebcbe78533c19eb48de",
+        "dte_090.csv": "2e98e956577a40d2d8a3d948ffa11fe71a3561242a2942a80cf36174166a6282",
+        "dte_120.csv": "ed75d95bdfe41dec5bc8c25dbefdee28b4839c48fad99e4b6d0530a0a090a6cd"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-15",
+      "input_sha256": {
+        "dte_030.csv": "3030beb21db39606d2c99d5a75dbdc87cd13103dc221121e2870b19db23c93a9",
+        "dte_060.csv": "27fb1873bc3c4eb79304a07e658fc62af5f6f730359511bf60eb145bb3a39039",
+        "dte_090.csv": "d91235c506129fb743450cfeecc9735ce85504799c04294b13c9441e0e78d725",
+        "dte_120.csv": "000bd02081dcdb6556863fc3f706a447d50002fe2877ace1cc7c874923aa1f13"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-14",
+      "input_sha256": {
+        "dte_030.csv": "963c8ca3e9fad2e12afe75e732dfd05e36b9edab451be66f0ec960236b4a1ee3",
+        "dte_060.csv": "8970acc417845dc3264c4fac1f8236088583592be9dcb62e80790b4153978508",
+        "dte_090.csv": "0c8cfd554b99ef60ad78b7a4223562a3cc45cf086cf14eb614a22d4ad4b3a6a6",
+        "dte_120.csv": "dafc1ff15c27e1da487e46474b8844be4ce516c4d847647b9bf1cc4725865749"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-13",
+      "input_sha256": {
+        "dte_030.csv": "6c54657151ce907ef3ff35a447ba864dfe8db7e2af981dfa18ded2033182233e",
+        "dte_060.csv": "dd28ab9bd72bf06abe59245d417e7588b1e105a88ab6c413080c4e3e85fd05b9",
+        "dte_090.csv": "aaf9ae8276d68a577ec45a164920debd51ba553ea738f918d104f6fbb225b373",
+        "dte_120.csv": "cae8195832b9eed6374918dac031c95f4b11f13c41a57fbd1573c322fc7de550"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-12",
+      "input_sha256": {
+        "dte_030.csv": "2ed6cf7d09b431cfea561d121dea97492b0cf2b5ffaea7fd6f508880f9f697a7",
+        "dte_060.csv": "e81ae576181668b4f778f27eff011a3bf8102b9afa2b6d2ee4d7f82379739914",
+        "dte_090.csv": "9508f7a1ec8ac263d4403613ce8e77174c1232d5b99cafa96255c0e841dea75f",
+        "dte_120.csv": "e5ea731a7651acfc1ea74a92da45688be60abca42e0fad58a243a41ee6527b9c"
+      },
+      "settings_sha256": "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-02",
+      "observation_date": "2026-02-27",
+      "input_sha256": {
+        "dte_030.csv": "404262248a889b3073f4d2e783a83abe0446383f3990b9c5320efa77a6423a5e",
+        "dte_060.csv": "c5da16c2659c5ccc6fe10edc237938657ec567d30da61661a9be3a17ad4ffbd2",
+        "dte_090.csv": "2f368fb8cfe75e8742c54e65ff9cbf7c98d2a7013fa5e1e73b7a3b98242e36b7",
+        "dte_120.csv": "9a459f7471a76193c520457343c2f8b40b5b8366ceb986e46e1f590f6773edcd"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-31",
+      "input_sha256": {
+        "dte_030.csv": "96856d7e934662bf507fe4468e903ec1db7edeabb3cbbe97013e2608f488d1b9",
+        "dte_060.csv": "54c4504e2f076a4ae996c224798773bbf08d15f46b72ae7b3dc2aa7279abbd1e",
+        "dte_090.csv": "79b2e00a9d95b6f37d65254334dcaebd740a99d020f55a63b4aac39f8bb0cacb",
+        "dte_120.csv": "264622e7fe4223195e2d4be0e0fdd547f5a2205030bc46606675a22cf4a71515"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-30",
+      "input_sha256": {
+        "dte_030.csv": "05a1bfaebbcc5fa0dea367948e60afb6e3bc193838b5b2b855b505f97c5bd0bb",
+        "dte_060.csv": "cf6d6035f680ed557bbe06eef77cefd3545b7fb7565c2b99a8cacefce7062478",
+        "dte_090.csv": "5e717dcac801105358b46cb267ffb16a04c11a489bcf0f8222c3c09bcf1c2844",
+        "dte_120.csv": "f37f39b71ba83e28a2e30c8dcfd6f3e8f2a1f5d4ef8f0fe0f600690eff8abf7b"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-27",
+      "input_sha256": {
+        "dte_030.csv": "b82fa71e5f98c8f6a7eaf6c0495ce6bb20664c57955fa261ae38d9b9e98d8253",
+        "dte_060.csv": "ffd55b86b4a0081bc4c81e655510833f941f6c3020e6221499d933150ee60b76",
+        "dte_090.csv": "0e01b0b4e25925545c320ea008442e3a1f813f8c3068849470f33644ef73f222",
+        "dte_120.csv": "319715bd5666b4c4b0893da2a219e85a385cd56d5431f6210b697bf302fcb122"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-26",
+      "input_sha256": {
+        "dte_030.csv": "7d889f4f0c47f29e58c66672ddaa6f6d8f81188b615936118cb34e5a5d701ce0",
+        "dte_060.csv": "fe18244bbff0d09ce5160c8ee3fd388c2c24dfa30920818dba063b1cec25ec58",
+        "dte_090.csv": "c8c6188a1309d5b6aaebf1283846ed2802a901c99867e02c029748debf270249",
+        "dte_120.csv": "e9b481dd0d6425369c2455746340536a89690bba38a968b2bf2d86601fafbaba"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-25",
+      "input_sha256": {
+        "dte_030.csv": "98fc1083f346810720a61cde72a94dd351de72870ad4ece6e4079aeaeb16ccb0",
+        "dte_060.csv": "c6899c53df057203b4dfdae01cda00f0d9b99e3d7f10b71fce532c4067fecb42",
+        "dte_090.csv": "d21bcef45ffd0eac8439fb2f61b0ff66992039996e6de55401a03ccc2f63567e",
+        "dte_120.csv": "00c365cbfd456bd47abdf181d8d7bb75e547f15d3e264b46558adbb8039950eb"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-24",
+      "input_sha256": {
+        "dte_030.csv": "809412b19581918fc81aa7fe8cba58db28b59a037372521f07a7012990ad3843",
+        "dte_060.csv": "a9f1c42caa1a926b11ea2c95849baccbf29b50e651c1f15db54dfdb54f19312f",
+        "dte_090.csv": "c9d3bf15b6d976bb4aafc33062b4228547e06e36cdd4713858a2a7549eb67ec9",
+        "dte_120.csv": "ac439d016122837ae3de229cb7012f002d8c0dcbb044ccfa46b095a710540ae1"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-23",
+      "input_sha256": {
+        "dte_030.csv": "a5b5d36d92105c308228958bcf8b4b2e6bcd778953834a6cd0dfa31c1e0c8166",
+        "dte_060.csv": "45e9324543fc02d10f07614fc8aa6dfd8d52e6db2f8b25d507dc6e97bcbce310",
+        "dte_090.csv": "6f2ab1e92fc92a9453d2477c03c3bafdaaa6eac845ce9dcc68a68c2c8d0700d7",
+        "dte_120.csv": "5bd71a048410a02c46369528d5740a48b95f7778c2c2566af32e12dc80d30be4"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-20",
+      "input_sha256": {
+        "dte_030.csv": "cb99e0c6c95ca3ef07ea32c2197a29bfc0e2530ab4e44d667240d33cd7b2a626",
+        "dte_060.csv": "d55acef4ab8c961077def632a52c304aed45a37b4ef9dc51f123d7e0bcf30e42",
+        "dte_090.csv": "9c355287b29c3e7b730b9801057dcca0636cb48cfcb608927221b8831fa7c4bc",
+        "dte_120.csv": "238aff9482857a6aa133602aba0044cee46455599c196169ba823baefca39b33"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-19",
+      "input_sha256": {
+        "dte_030.csv": "c541ba92f9b3e38ce9a37c22814a98ca50ebc804eb8ee5b0792f4569d852b0a1",
+        "dte_060.csv": "76aa18a265a39a5edac13398f5fb475a0e9fa29a6770cb42a3ded72b35da7a83",
+        "dte_090.csv": "f48700aebc66c1cb74cecb4cdf83d6c2a0e52d5d0d2e29a097b6dc851531858d",
+        "dte_120.csv": "40d7e95058f5d518c916f117c6b66bd274e14a7469603159f55c8e294741a993"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-18",
+      "input_sha256": {
+        "dte_030.csv": "0378da938aa6dfd26bf83cb7506841f66b3c2bed541cee1cb9632a3947d8b7b7",
+        "dte_060.csv": "7ab4f18802de4f80237984b346e765a97466a41dd016db75feacc8f6732e7491",
+        "dte_090.csv": "b801349eb29f44f4238cfff2fe5d08d8a651c5e1cc0a62c7737d289f224baab0",
+        "dte_120.csv": "68ff3bfc6ce065863af526f65b6fc297e685ae628123b5e2d7d19f7acdd40227"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-17",
+      "input_sha256": {
+        "dte_030.csv": "8fd3000a4a26bc77afcedc4d76e3a3a9ebdc558d644d0e391293a62faa990c1e",
+        "dte_060.csv": "76a865e8f8083a1446c89e59446ad44a1872111cd9f4a6d7cda6fa6e7787b14a",
+        "dte_090.csv": "d5b3cba0f561b916d27290f9538a80ba57363a203602bc3a1857f00597becc2d",
+        "dte_120.csv": "5758b4bb581a9a71bd427514e589508c343d091f4863a33eec61135b73571d71"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-16",
+      "input_sha256": {
+        "dte_030.csv": "59090d40ebf22f07940912c6d2dfcd66ec9b984b5d55e59ed874f838799d2cfb",
+        "dte_060.csv": "1ca986d18a18744b29817595139a74446123a51fdcff3337c89d8318e1f5bb45",
+        "dte_090.csv": "ef9f6b85264686ee26b8453c0ff0a9752b4600904e05c8acc61a0ffd9c679bf0",
+        "dte_120.csv": "d52cd63d3db1523f982e2f0185dcffe2c3f700aaa24c84d315e427f8831b58cd"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-13",
+      "input_sha256": {
+        "dte_030.csv": "fc4751b632919aaa8f0bd8767035a593558c0ec8ac96160fa5e2269387edfefc",
+        "dte_060.csv": "eca18288f3956fdfdb1b7d86279a48957978a1003547169ce036927ad81fa812",
+        "dte_090.csv": "deaf32a9f287289d16bf149c3566f58a31daa915c130864ecd94b052da672da4",
+        "dte_120.csv": "7ed81b8dcd86e6600441e7cb4a3b37575f90fa5e3dcb53031c084a493e3497b4"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-12",
+      "input_sha256": {
+        "dte_030.csv": "97f568541b8e05b3d02c21923f837ffb973c56c0fe143fead6d38c6e3542d561",
+        "dte_060.csv": "057aced12ec6aa318022de7e0accaaa1f5bb479992fd3125d7ebebd902736922",
+        "dte_090.csv": "326342c92ddf5d9516bf0f2fab15e2e8cd7d03e558833813c4a483f1512d4da8",
+        "dte_120.csv": "6ebe99dc176cc324b2f8b997610b970cd5dfa9b30e29a808e4925ea4b46c8a70"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-11",
+      "input_sha256": {
+        "dte_030.csv": "7d35e4c1f19efb27bf5635c5b0ccac3142c989bd2bdab08728ff454f70153e37",
+        "dte_060.csv": "77aabe8315949c26446a64713d978cb9b61342cf83d1a0779b7f8439eb38000e",
+        "dte_090.csv": "d33123ef8f98a25547400ecde2cfc39387c94f38b2a0d8c433c1b59e1404b063",
+        "dte_120.csv": "1b044c5b4c8fda354def94157acb3a53143ea36d6a4b5f3c1936a7098e804d11"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-10",
+      "input_sha256": {
+        "dte_030.csv": "974ccca083e7690c81cb448712478f66b8f313819643e65b6fdf8e752ee209e7",
+        "dte_060.csv": "db7cee7a232e7245f70afea34b6eeb0e109f2e5f5318a6ee9a12bd0515356a39",
+        "dte_090.csv": "3f9dddf3dd4c36081e34e38845fb6e27dafd923a2bd48f91e35dbf3c721667bf",
+        "dte_120.csv": "2ad2e253d0030dc38c565d1de58378f72f529e6268c210074b8966438d5494a7"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-30",
+      "input_sha256": {
+        "dte_030.csv": "2434ec52b4a145c9964e2b5a4a54a2aa0af5e720fc6b05501fd536001a16db6b",
+        "dte_060.csv": "b417d0b881fdc6dfd7161bc99aad80636b9e70acb853d0ec8ae8bd9f53cb1e73",
+        "dte_090.csv": "fb025f8bb5c251af5656035f6c174cc766fe3c38576584bd29f79ab52ec620e4",
+        "dte_120.csv": "f27cdf138ab2790dc107882adaaf599f1c883d883abd8dee7292cff207411104"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-29",
+      "input_sha256": {
+        "dte_030.csv": "d3b4b11699fc1d676b0074585ca2cc25cfa6c8b83d6b0d3a2204e02ec5ccaae0",
+        "dte_060.csv": "a6072b1ca4ee157d2bc03a1a512df491d5a7ff604427931f4f8d9067c7b3b06f",
+        "dte_090.csv": "a5421e4a7a1eff2587085bbeb513dfc95eaec7ce15e979eaa60e24f1b24d0661",
+        "dte_120.csv": "34f9f58bd5a4d5d7964e5a5208eb6b39b40110e9ee74e24fbfa1b22eb55d1a46"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-28",
+      "input_sha256": {
+        "dte_030.csv": "aeeca2ce4bd66c4c38bd89d72d090a1707e92ed92c7ce10aadaef45b03576538",
+        "dte_060.csv": "a7b44af76c3aa1d5cac9301fe9279979d2cc56373e1871b88d3f374b20c86b71",
+        "dte_090.csv": "7fb6ba4c9363ff63870dda359b3e8fab777ef3eae24722bb70281b81a66c9fe8",
+        "dte_120.csv": "55452b73f16ecbc557c68308426f045be5927903e82ff52093f8689c042d912a"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-05",
+      "observation_date": "2026-05-29",
+      "input_sha256": {
+        "dte_030.csv": "33ff8cc6bf43651f183ea4918b626be25f4e6c36eee3aa29d07020e9ba28ce53",
+        "dte_060.csv": "73188d0778fa5430f2e8758e301bad5f41f988a68ab14dbd97eeefbba675f0ba",
+        "dte_090.csv": "e2c404d23abadcdbaee514d51fb46c195620bb4e7d9caeb1e93996f6e58ccd37",
+        "dte_120.csv": "3531f34fa477af821cd47329c4fd70284899d029ce73fff76f1c4ba42b5348c9"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-06",
+      "observation_date": "2026-06-30",
+      "input_sha256": {
+        "dte_030.csv": "09d7fcc954ec1c4750e081b879082d03edc8040f63dcb2bc2146738921855393",
+        "dte_060.csv": "7fe97abc5a16c6dc77d38f0f18df236411eada27b076a863deb90633a59f12f6",
+        "dte_090.csv": "8290b415845da0fc3dc72877cd9e540f644c12ca1e5f202f6b9597188dff1474",
+        "dte_120.csv": "45d91e63217b402fdb52fa2958a82e1a8de02fdad64f352f05747b1353d57991"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-31",
+      "input_sha256": {
+        "dte_030.csv": "a2bdad75f579696d11f52404c20985f7f622baaef772d472365224a2eb3e4eef",
+        "dte_060.csv": "6f6f9def0742a42016c887138633634705980cb7dab88662746701e81c6d87b7",
+        "dte_090.csv": "09e25c8a8c031b608c4d570245af6da8ef8521dd73d365fcdaea42fa845d54a8",
+        "dte_120.csv": "99808034da0277e69b6d113211224d785fe2f140e73e7cbe849a19d3c30fbce0"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-30",
+      "input_sha256": {
+        "dte_030.csv": "a42cf50884bcf6c1ec2c51047d11b898490bcb2174d3947ea12cc15a884582cd",
+        "dte_060.csv": "40e766f800dbdedafd1f26c8c950d6db1a9b36d12fb15146b388df8a50b4b622",
+        "dte_090.csv": "f05e9dee8d785a4bf4c23c817df546c8cee37628384ef5b5e0d879f0dfe793f3",
+        "dte_120.csv": "7dc8346602bbf8efcc78407e5503397182bf92dbe32877479368f2fb84260dc5"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-29",
+      "input_sha256": {
+        "dte_030.csv": "8ad0f4d46f6e05150bc886b484cfde935304ffadcaae1849701d08e7c125d4a7",
+        "dte_060.csv": "76e4d91c2468e51e289c0a72a5d5273a0e1c0f78619f04d6c3ba78ae7c7b052c",
+        "dte_090.csv": "177332f2e0536c08948ce3261b48220ff54333352f2aa7f78772930efd41fc50",
+        "dte_120.csv": "59278af1213b4cc81e4861b7ec8814213367c078ab586a02eb821a3fe34e8172"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-28",
+      "input_sha256": {
+        "dte_030.csv": "465a6b8c2d280a460a2726d504bc2988c0e4b090110eda01a9cf7ba4cf25159e",
+        "dte_060.csv": "bdf582f640c0e4d12eb411e7881fdf3c8072ebb858c069d3dfa11313cf646583",
+        "dte_090.csv": "d9818937a6d316cbb1a581886dbe8a98be67cb59bd86eb5dfc2087df9bf6026f",
+        "dte_120.csv": "25a03539688422caf8ed9ebd34f9c35398c8722d7e328faba19f0f81f8877f9a"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-27",
+      "input_sha256": {
+        "dte_030.csv": "8ab42358780e6c974668d762b1d0e40891dfb7f6e5a14844609f82f2f6955a22",
+        "dte_060.csv": "fd0457ede82f120b1c45dc51c148803e1d40d397ef051ab20bee79d2b9d33c43",
+        "dte_090.csv": "9771d69efa3bde468a1e2f2ff41c671381e9552b224708fc3cf3285121ffbece",
+        "dte_120.csv": "112bda2219c286fee1dd4013596a145e54c25af73dd2ed7fd393c7da76ba5c7f"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-24",
+      "input_sha256": {
+        "dte_030.csv": "072fb9c37b4305754e873931b2396e293d82cb8832ad4bbf65c69e4b82c17df3",
+        "dte_060.csv": "f7aafd2f8385f72244973c945b8bfc63eddf6bd277554e04addbb1eb8309c018",
+        "dte_090.csv": "bdb5b670d63333d1f06409740c8ea4799443b38bf3f7148305fdefaf9f82bfa4",
+        "dte_120.csv": "fcd866fd9eb296ab77985330c90140ec2671649aef962ca892e3f170f08480c6"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-23",
+      "input_sha256": {
+        "dte_030.csv": "2598130a15108a03a22646e30e376eae4de8a01df8132fea518a5c6b95713825",
+        "dte_060.csv": "af44f751521b0396811ab533554b6527be98a887705c6340a6285b0177fc1b28",
+        "dte_090.csv": "3daf4f34b0cba78855f18a3fc243739a29587254fe755992865d5331b0e88649",
+        "dte_120.csv": "22d8921f1a20a4791ae19a0250d542b7aeaa92a595be2cf3678c192c80171669"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-22",
+      "input_sha256": {
+        "dte_030.csv": "cf82417d706706356b38a00de4316e136a0ec7d3ff212079fad272767d6e89b2",
+        "dte_060.csv": "43b7944222aa37a75f3f176a16a600e0231fd5e344eac7f2f663072db8a56c6e",
+        "dte_090.csv": "dcd5a63053d40364768e5689faa553dcf7cfa6ac9fd331a5c7ae8e54113e5c40",
+        "dte_120.csv": "106a0c0e638a1c2a5f5d090ab55a8304c82780e30d0f9ccd2bc6a36cfd2b71e5"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-21",
+      "input_sha256": {
+        "dte_030.csv": "bc4d6de417a78be5f5963569447002306836709c180d24cc752ad68b8c6725e5",
+        "dte_060.csv": "10b6539bdcb011e7214daad0c79c5acb007d1a95248518e0126cac111a3478be",
+        "dte_090.csv": "31b6e65fd4741d6a105a09ed8bbd719fe6c4cf403c6f7f0537cad89f33de95bc",
+        "dte_120.csv": "0c4c21aa773a5918af76b7de73d7f41352027ca5b7c87007eba333925a4a29ce"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-20",
+      "input_sha256": {
+        "dte_030.csv": "161ac99e0b75133aff1ff0b3fb928aef14803f4a9a2543465f7f156bc3e93554",
+        "dte_060.csv": "11206052fd949aece28d4b12a4521ef89f1562b2d8f0b45da18cb6072322ddde",
+        "dte_090.csv": "d970edf15eb587b829b262576add05f438b734b81143366c725abb67a05b078c",
+        "dte_120.csv": "4f674054f9247ea2082d9a5516f1f716fe6f48b178c8ea956565556ef4ccfce8"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-17",
+      "input_sha256": {
+        "dte_030.csv": "f7260e3ec8685d6c78d0a0559474d29e2aedfdb6f61465bf10ce5859a444ecd5",
+        "dte_060.csv": "8c7d2b8b265a3ec29bfee095e3e786b78378ae30b75aefb71e94d1b33a691082",
+        "dte_090.csv": "4ce764ea427cf36aac04019a8d36464f2532c280b3040f6af95f174c428b66d4",
+        "dte_120.csv": "c830f3766234ff40b230bf07c1849e9579211689ee9301d5268cff727896b5bf"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-16",
+      "input_sha256": {
+        "dte_030.csv": "507b6b8ef48f28b5ff2f92fb3e27f936c1e913df914583d0e181c11661f67369",
+        "dte_060.csv": "c2fa96cb0d97c47047b3b6cc394915fe34fd25b45ada2f08dae3c58d7e7f812c",
+        "dte_090.csv": "bd703ae4700f049aa2ae6288b398a1e1a7c563a3181496af59e31436a9d5b1c4",
+        "dte_120.csv": "b67129cf7871d07575d1cfd056e8717bc8779abc5bc2aff5c432414e2c896c08"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-15",
+      "input_sha256": {
+        "dte_030.csv": "4392c597261878c0b99d98a3ef4c7d93cb25b0d5401f6474385973c2c6d0f534",
+        "dte_060.csv": "5efd1b2dfb31151ab8937d4bba21e8e757095ee5f912dfe3438ffec765b8d07c",
+        "dte_090.csv": "02b6512934c9e4c30e0fb320092ae249bba67889b8470a84a66dd6d912f01662",
+        "dte_120.csv": "0b85e9fdb21592de8d1b0b0485f3869bbb82b87626bf93a4083d1ed5b723f41e"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-14",
+      "input_sha256": {
+        "dte_030.csv": "73f1fd580739592913e57069916af24c4f9b0e73db2e121996f577198cecbff5",
+        "dte_060.csv": "07445d598a7bc1d804372706e305aa06644a5ab68e0fb8816b76a3680692f858",
+        "dte_090.csv": "08b00311435afff29c73e9b2d610886d5655e2d2522859a38ab70853b9d554fd",
+        "dte_120.csv": "3078fff0d8119ddf3d9455b1764a189c2d55171327d3e3312ff45d27fd7cf8fe"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-13",
+      "input_sha256": {
+        "dte_030.csv": "eedc0b76b3e9683854b7300ecee83c148043eb6fcccaff3580c0d2f010bbcad2",
+        "dte_060.csv": "da01fe540c0ce0ea0cb18fdfdfd6206db3bd7dfe3910f9adca81d1b6bc8cd0d3",
+        "dte_090.csv": "f0484a51f9dd6a3fd1a338c75cc1c0cb97908aaba8125d2cbc9c4cd01fb72b1b",
+        "dte_120.csv": "ccf0c0444ba20db1925b75d2fa7b614e3dfce27b955cde25240477db9d2f6307"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "RuntimeError: Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-10",
+      "input_sha256": {
+        "dte_030.csv": "3cf50622fdaa227bfe2c45b5ee81f4ef66ba63e46b41ba4f3b8c9b23542d36da",
+        "dte_060.csv": "5b4903c815111023c677a3040ff7069a2d514dc7976705b3a1a24a2579961bd8",
+        "dte_090.csv": "aa036ddfbb5510974c9e43b79780b16cc83aa79858bb24c4b4b846c803be8d3b",
+        "dte_120.csv": "47319e1cbeb30330b2f612cf84f9040b3a4b67a3c7bbb3eed59598723d501afa"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-31",
+      "input_sha256": {
+        "dte_030.csv": "24b1518eee55df7702559e52fefc6d7cdf83defde65ce20c4d213e55aa4042cc",
+        "dte_060.csv": "0b76402d1b295cec9ecdbe241f8541e336c112ed34aa6411900cb85560d047eb",
+        "dte_090.csv": "affe375adde01ea54860d7abd29c66d513bddf8bb7a75bdd53ca92f2fe8358bc",
+        "dte_120.csv": "a33982920df8ad11f00e8ed07afde5ba6d925a5e150b8a5aa773db39be764aa9"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "failed",
+      "reason": "ValueError: No quotes survive the existing cleaning rules"
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-28",
+      "input_sha256": {
+        "dte_030.csv": "5e14c55caefca1cfe76b2e85479e33a026ff8fd048f7cf11d6f855d1233f12d3",
+        "dte_060.csv": "13e07c0a0b6e51b013105e95f426ad2491f06becda5d532add5c69b2acc31dee",
+        "dte_090.csv": "434ef669c53301746c570b0c8f71f4b8ba49c7e7186f0a0d73120e1ce9c97d0c",
+        "dte_120.csv": "1138a2fd46db788138ab00d8c2f32bd9a1a191041d2dedba089550620931cff4"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-09",
+      "observation_date": "2026-09-25",
+      "input_sha256": {
+        "dte_030.csv": "313c706bc71596c8f81931f154bd43a6041a8e410d8ed539a725dfc921f4a877",
+        "dte_060.csv": "7235ce3ec6e0b67f556e54853e52cd5dd67fedcc47c1980537cce9d184040f75",
+        "dte_090.csv": "0080ac38e6c95cc0d5fd96f0d3069d81590580165fff3ad314906f04952f04aa",
+        "dte_120.csv": "b9410c1b11a400d2ed083cf568220cabe84db6938b635682af0dd5f83b3233f4"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-02",
+      "observation_date": "2026-02-27",
+      "input_sha256": {
+        "dte_030.csv": "404262248a889b3073f4d2e783a83abe0446383f3990b9c5320efa77a6423a5e",
+        "dte_060.csv": "c5da16c2659c5ccc6fe10edc237938657ec567d30da61661a9be3a17ad4ffbd2",
+        "dte_090.csv": "2f368fb8cfe75e8742c54e65ff9cbf7c98d2a7013fa5e1e73b7a3b98242e36b7",
+        "dte_120.csv": "9a459f7471a76193c520457343c2f8b40b5b8366ceb986e46e1f590f6773edcd"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-10",
+      "input_sha256": {
+        "dte_030.csv": "974ccca083e7690c81cb448712478f66b8f313819643e65b6fdf8e752ee209e7",
+        "dte_060.csv": "db7cee7a232e7245f70afea34b6eeb0e109f2e5f5318a6ee9a12bd0515356a39",
+        "dte_090.csv": "3f9dddf3dd4c36081e34e38845fb6e27dafd923a2bd48f91e35dbf3c721667bf",
+        "dte_120.csv": "2ad2e253d0030dc38c565d1de58378f72f529e6268c210074b8966438d5494a7"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-28",
+      "input_sha256": {
+        "dte_030.csv": "aeeca2ce4bd66c4c38bd89d72d090a1707e92ed92c7ce10aadaef45b03576538",
+        "dte_060.csv": "a7b44af76c3aa1d5cac9301fe9279979d2cc56373e1871b88d3f374b20c86b71",
+        "dte_090.csv": "7fb6ba4c9363ff63870dda359b3e8fab777ef3eae24722bb70281b81a66c9fe8",
+        "dte_120.csv": "55452b73f16ecbc557c68308426f045be5927903e82ff52093f8689c042d912a"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-05",
+      "observation_date": "2026-05-29",
+      "input_sha256": {
+        "dte_030.csv": "33ff8cc6bf43651f183ea4918b626be25f4e6c36eee3aa29d07020e9ba28ce53",
+        "dte_060.csv": "73188d0778fa5430f2e8758e301bad5f41f988a68ab14dbd97eeefbba675f0ba",
+        "dte_090.csv": "e2c404d23abadcdbaee514d51fb46c195620bb4e7d9caeb1e93996f6e58ccd37",
+        "dte_120.csv": "3531f34fa477af821cd47329c4fd70284899d029ce73fff76f1c4ba42b5348c9"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-06",
+      "observation_date": "2026-06-30",
+      "input_sha256": {
+        "dte_030.csv": "09d7fcc954ec1c4750e081b879082d03edc8040f63dcb2bc2146738921855393",
+        "dte_060.csv": "7fe97abc5a16c6dc77d38f0f18df236411eada27b076a863deb90633a59f12f6",
+        "dte_090.csv": "8290b415845da0fc3dc72877cd9e540f644c12ca1e5f202f6b9597188dff1474",
+        "dte_120.csv": "45d91e63217b402fdb52fa2958a82e1a8de02fdad64f352f05747b1353d57991"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-10",
+      "input_sha256": {
+        "dte_030.csv": "3cf50622fdaa227bfe2c45b5ee81f4ef66ba63e46b41ba4f3b8c9b23542d36da",
+        "dte_060.csv": "5b4903c815111023c677a3040ff7069a2d514dc7976705b3a1a24a2579961bd8",
+        "dte_090.csv": "aa036ddfbb5510974c9e43b79780b16cc83aa79858bb24c4b4b846c803be8d3b",
+        "dte_120.csv": "47319e1cbeb30330b2f612cf84f9040b3a4b67a3c7bbb3eed59598723d501afa"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-28",
+      "input_sha256": {
+        "dte_030.csv": "5e14c55caefca1cfe76b2e85479e33a026ff8fd048f7cf11d6f855d1233f12d3",
+        "dte_060.csv": "13e07c0a0b6e51b013105e95f426ad2491f06becda5d532add5c69b2acc31dee",
+        "dte_090.csv": "434ef669c53301746c570b0c8f71f4b8ba49c7e7186f0a0d73120e1ce9c97d0c",
+        "dte_120.csv": "1138a2fd46db788138ab00d8c2f32bd9a1a191041d2dedba089550620931cff4"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-09",
+      "observation_date": "2026-09-25",
+      "input_sha256": {
+        "dte_030.csv": "313c706bc71596c8f81931f154bd43a6041a8e410d8ed539a725dfc921f4a877",
+        "dte_060.csv": "7235ce3ec6e0b67f556e54853e52cd5dd67fedcc47c1980537cce9d184040f75",
+        "dte_090.csv": "0080ac38e6c95cc0d5fd96f0d3069d81590580165fff3ad314906f04952f04aa",
+        "dte_120.csv": "b9410c1b11a400d2ed083cf568220cabe84db6938b635682af0dd5f83b3233f4"
+      },
+      "settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-02",
+      "observation_date": "2026-02-27",
+      "input_sha256": {
+        "dte_030.csv": "404262248a889b3073f4d2e783a83abe0446383f3990b9c5320efa77a6423a5e",
+        "dte_060.csv": "c5da16c2659c5ccc6fe10edc237938657ec567d30da61661a9be3a17ad4ffbd2",
+        "dte_090.csv": "2f368fb8cfe75e8742c54e65ff9cbf7c98d2a7013fa5e1e73b7a3b98242e36b7",
+        "dte_120.csv": "9a459f7471a76193c520457343c2f8b40b5b8366ceb986e46e1f590f6773edcd"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-31",
+      "input_sha256": {
+        "dte_030.csv": "96856d7e934662bf507fe4468e903ec1db7edeabb3cbbe97013e2608f488d1b9",
+        "dte_060.csv": "54c4504e2f076a4ae996c224798773bbf08d15f46b72ae7b3dc2aa7279abbd1e",
+        "dte_090.csv": "79b2e00a9d95b6f37d65254334dcaebd740a99d020f55a63b4aac39f8bb0cacb",
+        "dte_120.csv": "264622e7fe4223195e2d4be0e0fdd547f5a2205030bc46606675a22cf4a71515"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-30",
+      "input_sha256": {
+        "dte_030.csv": "05a1bfaebbcc5fa0dea367948e60afb6e3bc193838b5b2b855b505f97c5bd0bb",
+        "dte_060.csv": "cf6d6035f680ed557bbe06eef77cefd3545b7fb7565c2b99a8cacefce7062478",
+        "dte_090.csv": "5e717dcac801105358b46cb267ffb16a04c11a489bcf0f8222c3c09bcf1c2844",
+        "dte_120.csv": "f37f39b71ba83e28a2e30c8dcfd6f3e8f2a1f5d4ef8f0fe0f600690eff8abf7b"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-27",
+      "input_sha256": {
+        "dte_030.csv": "b82fa71e5f98c8f6a7eaf6c0495ce6bb20664c57955fa261ae38d9b9e98d8253",
+        "dte_060.csv": "ffd55b86b4a0081bc4c81e655510833f941f6c3020e6221499d933150ee60b76",
+        "dte_090.csv": "0e01b0b4e25925545c320ea008442e3a1f813f8c3068849470f33644ef73f222",
+        "dte_120.csv": "319715bd5666b4c4b0893da2a219e85a385cd56d5431f6210b697bf302fcb122"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-26",
+      "input_sha256": {
+        "dte_030.csv": "7d889f4f0c47f29e58c66672ddaa6f6d8f81188b615936118cb34e5a5d701ce0",
+        "dte_060.csv": "fe18244bbff0d09ce5160c8ee3fd388c2c24dfa30920818dba063b1cec25ec58",
+        "dte_090.csv": "c8c6188a1309d5b6aaebf1283846ed2802a901c99867e02c029748debf270249",
+        "dte_120.csv": "e9b481dd0d6425369c2455746340536a89690bba38a968b2bf2d86601fafbaba"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-25",
+      "input_sha256": {
+        "dte_030.csv": "98fc1083f346810720a61cde72a94dd351de72870ad4ece6e4079aeaeb16ccb0",
+        "dte_060.csv": "c6899c53df057203b4dfdae01cda00f0d9b99e3d7f10b71fce532c4067fecb42",
+        "dte_090.csv": "d21bcef45ffd0eac8439fb2f61b0ff66992039996e6de55401a03ccc2f63567e",
+        "dte_120.csv": "00c365cbfd456bd47abdf181d8d7bb75e547f15d3e264b46558adbb8039950eb"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-24",
+      "input_sha256": {
+        "dte_030.csv": "809412b19581918fc81aa7fe8cba58db28b59a037372521f07a7012990ad3843",
+        "dte_060.csv": "a9f1c42caa1a926b11ea2c95849baccbf29b50e651c1f15db54dfdb54f19312f",
+        "dte_090.csv": "c9d3bf15b6d976bb4aafc33062b4228547e06e36cdd4713858a2a7549eb67ec9",
+        "dte_120.csv": "ac439d016122837ae3de229cb7012f002d8c0dcbb044ccfa46b095a710540ae1"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-23",
+      "input_sha256": {
+        "dte_030.csv": "a5b5d36d92105c308228958bcf8b4b2e6bcd778953834a6cd0dfa31c1e0c8166",
+        "dte_060.csv": "45e9324543fc02d10f07614fc8aa6dfd8d52e6db2f8b25d507dc6e97bcbce310",
+        "dte_090.csv": "6f2ab1e92fc92a9453d2477c03c3bafdaaa6eac845ce9dcc68a68c2c8d0700d7",
+        "dte_120.csv": "5bd71a048410a02c46369528d5740a48b95f7778c2c2566af32e12dc80d30be4"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-20",
+      "input_sha256": {
+        "dte_030.csv": "cb99e0c6c95ca3ef07ea32c2197a29bfc0e2530ab4e44d667240d33cd7b2a626",
+        "dte_060.csv": "d55acef4ab8c961077def632a52c304aed45a37b4ef9dc51f123d7e0bcf30e42",
+        "dte_090.csv": "9c355287b29c3e7b730b9801057dcca0636cb48cfcb608927221b8831fa7c4bc",
+        "dte_120.csv": "238aff9482857a6aa133602aba0044cee46455599c196169ba823baefca39b33"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-19",
+      "input_sha256": {
+        "dte_030.csv": "c541ba92f9b3e38ce9a37c22814a98ca50ebc804eb8ee5b0792f4569d852b0a1",
+        "dte_060.csv": "76aa18a265a39a5edac13398f5fb475a0e9fa29a6770cb42a3ded72b35da7a83",
+        "dte_090.csv": "f48700aebc66c1cb74cecb4cdf83d6c2a0e52d5d0d2e29a097b6dc851531858d",
+        "dte_120.csv": "40d7e95058f5d518c916f117c6b66bd274e14a7469603159f55c8e294741a993"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-18",
+      "input_sha256": {
+        "dte_030.csv": "0378da938aa6dfd26bf83cb7506841f66b3c2bed541cee1cb9632a3947d8b7b7",
+        "dte_060.csv": "7ab4f18802de4f80237984b346e765a97466a41dd016db75feacc8f6732e7491",
+        "dte_090.csv": "b801349eb29f44f4238cfff2fe5d08d8a651c5e1cc0a62c7737d289f224baab0",
+        "dte_120.csv": "68ff3bfc6ce065863af526f65b6fc297e685ae628123b5e2d7d19f7acdd40227"
+      },
+      "settings_sha256": "aaa4c8f26f125541d11d402eab2e807b10f4b67904d70262f5c5f72131652094",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-02",
+      "observation_date": "2026-02-27",
+      "input_sha256": {
+        "dte_030.csv": "404262248a889b3073f4d2e783a83abe0446383f3990b9c5320efa77a6423a5e",
+        "dte_060.csv": "c5da16c2659c5ccc6fe10edc237938657ec567d30da61661a9be3a17ad4ffbd2",
+        "dte_090.csv": "2f368fb8cfe75e8742c54e65ff9cbf7c98d2a7013fa5e1e73b7a3b98242e36b7",
+        "dte_120.csv": "9a459f7471a76193c520457343c2f8b40b5b8366ceb986e46e1f590f6773edcd"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-31",
+      "input_sha256": {
+        "dte_030.csv": "96856d7e934662bf507fe4468e903ec1db7edeabb3cbbe97013e2608f488d1b9",
+        "dte_060.csv": "54c4504e2f076a4ae996c224798773bbf08d15f46b72ae7b3dc2aa7279abbd1e",
+        "dte_090.csv": "79b2e00a9d95b6f37d65254334dcaebd740a99d020f55a63b4aac39f8bb0cacb",
+        "dte_120.csv": "264622e7fe4223195e2d4be0e0fdd547f5a2205030bc46606675a22cf4a71515"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-30",
+      "input_sha256": {
+        "dte_030.csv": "05a1bfaebbcc5fa0dea367948e60afb6e3bc193838b5b2b855b505f97c5bd0bb",
+        "dte_060.csv": "cf6d6035f680ed557bbe06eef77cefd3545b7fb7565c2b99a8cacefce7062478",
+        "dte_090.csv": "5e717dcac801105358b46cb267ffb16a04c11a489bcf0f8222c3c09bcf1c2844",
+        "dte_120.csv": "f37f39b71ba83e28a2e30c8dcfd6f3e8f2a1f5d4ef8f0fe0f600690eff8abf7b"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-27",
+      "input_sha256": {
+        "dte_030.csv": "b82fa71e5f98c8f6a7eaf6c0495ce6bb20664c57955fa261ae38d9b9e98d8253",
+        "dte_060.csv": "ffd55b86b4a0081bc4c81e655510833f941f6c3020e6221499d933150ee60b76",
+        "dte_090.csv": "0e01b0b4e25925545c320ea008442e3a1f813f8c3068849470f33644ef73f222",
+        "dte_120.csv": "319715bd5666b4c4b0893da2a219e85a385cd56d5431f6210b697bf302fcb122"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-26",
+      "input_sha256": {
+        "dte_030.csv": "7d889f4f0c47f29e58c66672ddaa6f6d8f81188b615936118cb34e5a5d701ce0",
+        "dte_060.csv": "fe18244bbff0d09ce5160c8ee3fd388c2c24dfa30920818dba063b1cec25ec58",
+        "dte_090.csv": "c8c6188a1309d5b6aaebf1283846ed2802a901c99867e02c029748debf270249",
+        "dte_120.csv": "e9b481dd0d6425369c2455746340536a89690bba38a968b2bf2d86601fafbaba"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-25",
+      "input_sha256": {
+        "dte_030.csv": "98fc1083f346810720a61cde72a94dd351de72870ad4ece6e4079aeaeb16ccb0",
+        "dte_060.csv": "c6899c53df057203b4dfdae01cda00f0d9b99e3d7f10b71fce532c4067fecb42",
+        "dte_090.csv": "d21bcef45ffd0eac8439fb2f61b0ff66992039996e6de55401a03ccc2f63567e",
+        "dte_120.csv": "00c365cbfd456bd47abdf181d8d7bb75e547f15d3e264b46558adbb8039950eb"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-24",
+      "input_sha256": {
+        "dte_030.csv": "809412b19581918fc81aa7fe8cba58db28b59a037372521f07a7012990ad3843",
+        "dte_060.csv": "a9f1c42caa1a926b11ea2c95849baccbf29b50e651c1f15db54dfdb54f19312f",
+        "dte_090.csv": "c9d3bf15b6d976bb4aafc33062b4228547e06e36cdd4713858a2a7549eb67ec9",
+        "dte_120.csv": "ac439d016122837ae3de229cb7012f002d8c0dcbb044ccfa46b095a710540ae1"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-23",
+      "input_sha256": {
+        "dte_030.csv": "a5b5d36d92105c308228958bcf8b4b2e6bcd778953834a6cd0dfa31c1e0c8166",
+        "dte_060.csv": "45e9324543fc02d10f07614fc8aa6dfd8d52e6db2f8b25d507dc6e97bcbce310",
+        "dte_090.csv": "6f2ab1e92fc92a9453d2477c03c3bafdaaa6eac845ce9dcc68a68c2c8d0700d7",
+        "dte_120.csv": "5bd71a048410a02c46369528d5740a48b95f7778c2c2566af32e12dc80d30be4"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-20",
+      "input_sha256": {
+        "dte_030.csv": "cb99e0c6c95ca3ef07ea32c2197a29bfc0e2530ab4e44d667240d33cd7b2a626",
+        "dte_060.csv": "d55acef4ab8c961077def632a52c304aed45a37b4ef9dc51f123d7e0bcf30e42",
+        "dte_090.csv": "9c355287b29c3e7b730b9801057dcca0636cb48cfcb608927221b8831fa7c4bc",
+        "dte_120.csv": "238aff9482857a6aa133602aba0044cee46455599c196169ba823baefca39b33"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-19",
+      "input_sha256": {
+        "dte_030.csv": "c541ba92f9b3e38ce9a37c22814a98ca50ebc804eb8ee5b0792f4569d852b0a1",
+        "dte_060.csv": "76aa18a265a39a5edac13398f5fb475a0e9fa29a6770cb42a3ded72b35da7a83",
+        "dte_090.csv": "f48700aebc66c1cb74cecb4cdf83d6c2a0e52d5d0d2e29a097b6dc851531858d",
+        "dte_120.csv": "40d7e95058f5d518c916f117c6b66bd274e14a7469603159f55c8e294741a993"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-18",
+      "input_sha256": {
+        "dte_030.csv": "0378da938aa6dfd26bf83cb7506841f66b3c2bed541cee1cb9632a3947d8b7b7",
+        "dte_060.csv": "7ab4f18802de4f80237984b346e765a97466a41dd016db75feacc8f6732e7491",
+        "dte_090.csv": "b801349eb29f44f4238cfff2fe5d08d8a651c5e1cc0a62c7737d289f224baab0",
+        "dte_120.csv": "68ff3bfc6ce065863af526f65b6fc297e685ae628123b5e2d7d19f7acdd40227"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-17",
+      "input_sha256": {
+        "dte_030.csv": "8fd3000a4a26bc77afcedc4d76e3a3a9ebdc558d644d0e391293a62faa990c1e",
+        "dte_060.csv": "76a865e8f8083a1446c89e59446ad44a1872111cd9f4a6d7cda6fa6e7787b14a",
+        "dte_090.csv": "d5b3cba0f561b916d27290f9538a80ba57363a203602bc3a1857f00597becc2d",
+        "dte_120.csv": "5758b4bb581a9a71bd427514e589508c343d091f4863a33eec61135b73571d71"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-16",
+      "input_sha256": {
+        "dte_030.csv": "59090d40ebf22f07940912c6d2dfcd66ec9b984b5d55e59ed874f838799d2cfb",
+        "dte_060.csv": "1ca986d18a18744b29817595139a74446123a51fdcff3337c89d8318e1f5bb45",
+        "dte_090.csv": "ef9f6b85264686ee26b8453c0ff0a9752b4600904e05c8acc61a0ffd9c679bf0",
+        "dte_120.csv": "d52cd63d3db1523f982e2f0185dcffe2c3f700aaa24c84d315e427f8831b58cd"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-13",
+      "input_sha256": {
+        "dte_030.csv": "fc4751b632919aaa8f0bd8767035a593558c0ec8ac96160fa5e2269387edfefc",
+        "dte_060.csv": "eca18288f3956fdfdb1b7d86279a48957978a1003547169ce036927ad81fa812",
+        "dte_090.csv": "deaf32a9f287289d16bf149c3566f58a31daa915c130864ecd94b052da672da4",
+        "dte_120.csv": "7ed81b8dcd86e6600441e7cb4a3b37575f90fa5e3dcb53031c084a493e3497b4"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-12",
+      "input_sha256": {
+        "dte_030.csv": "97f568541b8e05b3d02c21923f837ffb973c56c0fe143fead6d38c6e3542d561",
+        "dte_060.csv": "057aced12ec6aa318022de7e0accaaa1f5bb479992fd3125d7ebebd902736922",
+        "dte_090.csv": "326342c92ddf5d9516bf0f2fab15e2e8cd7d03e558833813c4a483f1512d4da8",
+        "dte_120.csv": "6ebe99dc176cc324b2f8b997610b970cd5dfa9b30e29a808e4925ea4b46c8a70"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-11",
+      "input_sha256": {
+        "dte_030.csv": "7d35e4c1f19efb27bf5635c5b0ccac3142c989bd2bdab08728ff454f70153e37",
+        "dte_060.csv": "77aabe8315949c26446a64713d978cb9b61342cf83d1a0779b7f8439eb38000e",
+        "dte_090.csv": "d33123ef8f98a25547400ecde2cfc39387c94f38b2a0d8c433c1b59e1404b063",
+        "dte_120.csv": "1b044c5b4c8fda354def94157acb3a53143ea36d6a4b5f3c1936a7098e804d11"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-10",
+      "input_sha256": {
+        "dte_030.csv": "974ccca083e7690c81cb448712478f66b8f313819643e65b6fdf8e752ee209e7",
+        "dte_060.csv": "db7cee7a232e7245f70afea34b6eeb0e109f2e5f5318a6ee9a12bd0515356a39",
+        "dte_090.csv": "3f9dddf3dd4c36081e34e38845fb6e27dafd923a2bd48f91e35dbf3c721667bf",
+        "dte_120.csv": "2ad2e253d0030dc38c565d1de58378f72f529e6268c210074b8966438d5494a7"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-30",
+      "input_sha256": {
+        "dte_030.csv": "2434ec52b4a145c9964e2b5a4a54a2aa0af5e720fc6b05501fd536001a16db6b",
+        "dte_060.csv": "b417d0b881fdc6dfd7161bc99aad80636b9e70acb853d0ec8ae8bd9f53cb1e73",
+        "dte_090.csv": "fb025f8bb5c251af5656035f6c174cc766fe3c38576584bd29f79ab52ec620e4",
+        "dte_120.csv": "f27cdf138ab2790dc107882adaaf599f1c883d883abd8dee7292cff207411104"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-29",
+      "input_sha256": {
+        "dte_030.csv": "d3b4b11699fc1d676b0074585ca2cc25cfa6c8b83d6b0d3a2204e02ec5ccaae0",
+        "dte_060.csv": "a6072b1ca4ee157d2bc03a1a512df491d5a7ff604427931f4f8d9067c7b3b06f",
+        "dte_090.csv": "a5421e4a7a1eff2587085bbeb513dfc95eaec7ce15e979eaa60e24f1b24d0661",
+        "dte_120.csv": "34f9f58bd5a4d5d7964e5a5208eb6b39b40110e9ee74e24fbfa1b22eb55d1a46"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-28",
+      "input_sha256": {
+        "dte_030.csv": "aeeca2ce4bd66c4c38bd89d72d090a1707e92ed92c7ce10aadaef45b03576538",
+        "dte_060.csv": "a7b44af76c3aa1d5cac9301fe9279979d2cc56373e1871b88d3f374b20c86b71",
+        "dte_090.csv": "7fb6ba4c9363ff63870dda359b3e8fab777ef3eae24722bb70281b81a66c9fe8",
+        "dte_120.csv": "55452b73f16ecbc557c68308426f045be5927903e82ff52093f8689c042d912a"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-05",
+      "observation_date": "2026-05-29",
+      "input_sha256": {
+        "dte_030.csv": "33ff8cc6bf43651f183ea4918b626be25f4e6c36eee3aa29d07020e9ba28ce53",
+        "dte_060.csv": "73188d0778fa5430f2e8758e301bad5f41f988a68ab14dbd97eeefbba675f0ba",
+        "dte_090.csv": "e2c404d23abadcdbaee514d51fb46c195620bb4e7d9caeb1e93996f6e58ccd37",
+        "dte_120.csv": "3531f34fa477af821cd47329c4fd70284899d029ce73fff76f1c4ba42b5348c9"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-06",
+      "observation_date": "2026-06-30",
+      "input_sha256": {
+        "dte_030.csv": "09d7fcc954ec1c4750e081b879082d03edc8040f63dcb2bc2146738921855393",
+        "dte_060.csv": "7fe97abc5a16c6dc77d38f0f18df236411eada27b076a863deb90633a59f12f6",
+        "dte_090.csv": "8290b415845da0fc3dc72877cd9e540f644c12ca1e5f202f6b9597188dff1474",
+        "dte_120.csv": "45d91e63217b402fdb52fa2958a82e1a8de02fdad64f352f05747b1353d57991"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-31",
+      "input_sha256": {
+        "dte_030.csv": "a2bdad75f579696d11f52404c20985f7f622baaef772d472365224a2eb3e4eef",
+        "dte_060.csv": "6f6f9def0742a42016c887138633634705980cb7dab88662746701e81c6d87b7",
+        "dte_090.csv": "09e25c8a8c031b608c4d570245af6da8ef8521dd73d365fcdaea42fa845d54a8",
+        "dte_120.csv": "99808034da0277e69b6d113211224d785fe2f140e73e7cbe849a19d3c30fbce0"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-30",
+      "input_sha256": {
+        "dte_030.csv": "a42cf50884bcf6c1ec2c51047d11b898490bcb2174d3947ea12cc15a884582cd",
+        "dte_060.csv": "40e766f800dbdedafd1f26c8c950d6db1a9b36d12fb15146b388df8a50b4b622",
+        "dte_090.csv": "f05e9dee8d785a4bf4c23c817df546c8cee37628384ef5b5e0d879f0dfe793f3",
+        "dte_120.csv": "7dc8346602bbf8efcc78407e5503397182bf92dbe32877479368f2fb84260dc5"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-29",
+      "input_sha256": {
+        "dte_030.csv": "8ad0f4d46f6e05150bc886b484cfde935304ffadcaae1849701d08e7c125d4a7",
+        "dte_060.csv": "76e4d91c2468e51e289c0a72a5d5273a0e1c0f78619f04d6c3ba78ae7c7b052c",
+        "dte_090.csv": "177332f2e0536c08948ce3261b48220ff54333352f2aa7f78772930efd41fc50",
+        "dte_120.csv": "59278af1213b4cc81e4861b7ec8814213367c078ab586a02eb821a3fe34e8172"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-28",
+      "input_sha256": {
+        "dte_030.csv": "465a6b8c2d280a460a2726d504bc2988c0e4b090110eda01a9cf7ba4cf25159e",
+        "dte_060.csv": "bdf582f640c0e4d12eb411e7881fdf3c8072ebb858c069d3dfa11313cf646583",
+        "dte_090.csv": "d9818937a6d316cbb1a581886dbe8a98be67cb59bd86eb5dfc2087df9bf6026f",
+        "dte_120.csv": "25a03539688422caf8ed9ebd34f9c35398c8722d7e328faba19f0f81f8877f9a"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-27",
+      "input_sha256": {
+        "dte_030.csv": "8ab42358780e6c974668d762b1d0e40891dfb7f6e5a14844609f82f2f6955a22",
+        "dte_060.csv": "fd0457ede82f120b1c45dc51c148803e1d40d397ef051ab20bee79d2b9d33c43",
+        "dte_090.csv": "9771d69efa3bde468a1e2f2ff41c671381e9552b224708fc3cf3285121ffbece",
+        "dte_120.csv": "112bda2219c286fee1dd4013596a145e54c25af73dd2ed7fd393c7da76ba5c7f"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-24",
+      "input_sha256": {
+        "dte_030.csv": "072fb9c37b4305754e873931b2396e293d82cb8832ad4bbf65c69e4b82c17df3",
+        "dte_060.csv": "f7aafd2f8385f72244973c945b8bfc63eddf6bd277554e04addbb1eb8309c018",
+        "dte_090.csv": "bdb5b670d63333d1f06409740c8ea4799443b38bf3f7148305fdefaf9f82bfa4",
+        "dte_120.csv": "fcd866fd9eb296ab77985330c90140ec2671649aef962ca892e3f170f08480c6"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-23",
+      "input_sha256": {
+        "dte_030.csv": "2598130a15108a03a22646e30e376eae4de8a01df8132fea518a5c6b95713825",
+        "dte_060.csv": "af44f751521b0396811ab533554b6527be98a887705c6340a6285b0177fc1b28",
+        "dte_090.csv": "3daf4f34b0cba78855f18a3fc243739a29587254fe755992865d5331b0e88649",
+        "dte_120.csv": "22d8921f1a20a4791ae19a0250d542b7aeaa92a595be2cf3678c192c80171669"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-22",
+      "input_sha256": {
+        "dte_030.csv": "cf82417d706706356b38a00de4316e136a0ec7d3ff212079fad272767d6e89b2",
+        "dte_060.csv": "43b7944222aa37a75f3f176a16a600e0231fd5e344eac7f2f663072db8a56c6e",
+        "dte_090.csv": "dcd5a63053d40364768e5689faa553dcf7cfa6ac9fd331a5c7ae8e54113e5c40",
+        "dte_120.csv": "106a0c0e638a1c2a5f5d090ab55a8304c82780e30d0f9ccd2bc6a36cfd2b71e5"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-21",
+      "input_sha256": {
+        "dte_030.csv": "bc4d6de417a78be5f5963569447002306836709c180d24cc752ad68b8c6725e5",
+        "dte_060.csv": "10b6539bdcb011e7214daad0c79c5acb007d1a95248518e0126cac111a3478be",
+        "dte_090.csv": "31b6e65fd4741d6a105a09ed8bbd719fe6c4cf403c6f7f0537cad89f33de95bc",
+        "dte_120.csv": "0c4c21aa773a5918af76b7de73d7f41352027ca5b7c87007eba333925a4a29ce"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-20",
+      "input_sha256": {
+        "dte_030.csv": "161ac99e0b75133aff1ff0b3fb928aef14803f4a9a2543465f7f156bc3e93554",
+        "dte_060.csv": "11206052fd949aece28d4b12a4521ef89f1562b2d8f0b45da18cb6072322ddde",
+        "dte_090.csv": "d970edf15eb587b829b262576add05f438b734b81143366c725abb67a05b078c",
+        "dte_120.csv": "4f674054f9247ea2082d9a5516f1f716fe6f48b178c8ea956565556ef4ccfce8"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-17",
+      "input_sha256": {
+        "dte_030.csv": "f7260e3ec8685d6c78d0a0559474d29e2aedfdb6f61465bf10ce5859a444ecd5",
+        "dte_060.csv": "8c7d2b8b265a3ec29bfee095e3e786b78378ae30b75aefb71e94d1b33a691082",
+        "dte_090.csv": "4ce764ea427cf36aac04019a8d36464f2532c280b3040f6af95f174c428b66d4",
+        "dte_120.csv": "c830f3766234ff40b230bf07c1849e9579211689ee9301d5268cff727896b5bf"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-16",
+      "input_sha256": {
+        "dte_030.csv": "507b6b8ef48f28b5ff2f92fb3e27f936c1e913df914583d0e181c11661f67369",
+        "dte_060.csv": "c2fa96cb0d97c47047b3b6cc394915fe34fd25b45ada2f08dae3c58d7e7f812c",
+        "dte_090.csv": "bd703ae4700f049aa2ae6288b398a1e1a7c563a3181496af59e31436a9d5b1c4",
+        "dte_120.csv": "b67129cf7871d07575d1cfd056e8717bc8779abc5bc2aff5c432414e2c896c08"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-15",
+      "input_sha256": {
+        "dte_030.csv": "4392c597261878c0b99d98a3ef4c7d93cb25b0d5401f6474385973c2c6d0f534",
+        "dte_060.csv": "5efd1b2dfb31151ab8937d4bba21e8e757095ee5f912dfe3438ffec765b8d07c",
+        "dte_090.csv": "02b6512934c9e4c30e0fb320092ae249bba67889b8470a84a66dd6d912f01662",
+        "dte_120.csv": "0b85e9fdb21592de8d1b0b0485f3869bbb82b87626bf93a4083d1ed5b723f41e"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-14",
+      "input_sha256": {
+        "dte_030.csv": "73f1fd580739592913e57069916af24c4f9b0e73db2e121996f577198cecbff5",
+        "dte_060.csv": "07445d598a7bc1d804372706e305aa06644a5ab68e0fb8816b76a3680692f858",
+        "dte_090.csv": "08b00311435afff29c73e9b2d610886d5655e2d2522859a38ab70853b9d554fd",
+        "dte_120.csv": "3078fff0d8119ddf3d9455b1764a189c2d55171327d3e3312ff45d27fd7cf8fe"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-13",
+      "input_sha256": {
+        "dte_030.csv": "eedc0b76b3e9683854b7300ecee83c148043eb6fcccaff3580c0d2f010bbcad2",
+        "dte_060.csv": "da01fe540c0ce0ea0cb18fdfdfd6206db3bd7dfe3910f9adca81d1b6bc8cd0d3",
+        "dte_090.csv": "f0484a51f9dd6a3fd1a338c75cc1c0cb97908aaba8125d2cbc9c4cd01fb72b1b",
+        "dte_120.csv": "ccf0c0444ba20db1925b75d2fa7b614e3dfce27b955cde25240477db9d2f6307"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-10",
+      "input_sha256": {
+        "dte_030.csv": "3cf50622fdaa227bfe2c45b5ee81f4ef66ba63e46b41ba4f3b8c9b23542d36da",
+        "dte_060.csv": "5b4903c815111023c677a3040ff7069a2d514dc7976705b3a1a24a2579961bd8",
+        "dte_090.csv": "aa036ddfbb5510974c9e43b79780b16cc83aa79858bb24c4b4b846c803be8d3b",
+        "dte_120.csv": "47319e1cbeb30330b2f612cf84f9040b3a4b67a3c7bbb3eed59598723d501afa"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Upper-bound optimisation failed: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-09",
+      "input_sha256": {
+        "dte_030.csv": "ad380e09881092c42907bf4c7a14bb815133d3e7623830a52ac79c0f2e68bcef",
+        "dte_060.csv": "557ffae8ec2502e90cc2a6eb806407066e16d0a56320ecf3be3a8d2f988a29f8",
+        "dte_090.csv": "a472f9ba53a6e217b9f77f3d8672d3f7e5b4f2cbe624664195fd7ec2223bfd52",
+        "dte_120.csv": "4f56e9dcf150041ff5f346d692045aa4ac463a5803389b3abcf8d62eb675090e"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-08",
+      "input_sha256": {
+        "dte_030.csv": "3fe242ea88eb8203f51372f53717a35db416289a49f75a091c6417cca83d2e25",
+        "dte_060.csv": "d9379970a48399b7b59f9acf5afa109f8a2ff8e6b2433653c968ea7d8716e370",
+        "dte_090.csv": "4d186d82eedadc876e2e26fe96cd164a35fefd29a6ca47b84c1ebc096eec12b5",
+        "dte_120.csv": "d82923e80aca7019caec24d8e707d923dc0a111535e84752254de966d4a00f3d"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-07",
+      "input_sha256": {
+        "dte_030.csv": "6025b066ab98a824f8817489c73d729f45f40671db69a368571180b89f803f19",
+        "dte_060.csv": "b359b835b2b83294d9718a0a3469eecc806cb1deddc8d63e0b4200cc14ff6b7a",
+        "dte_090.csv": "6cc83e38d1d837a3fc4d51d0d722ad327058449d6d0b2a35ca95705d1636da08",
+        "dte_120.csv": "d8cb58a3adab3a1c70f505febf8cb3f64068925c28d34f223a88fc352eed633a"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Upper-bound optimisation failed: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-06",
+      "input_sha256": {
+        "dte_030.csv": "86fa4da3d200145ffa3e80cff5831ac06a5ce4d6737e497d09193dd470a21f9c",
+        "dte_060.csv": "1903aa1a895e0527b651bd336320ca67ab158b1bd3734d3932e9eae4d4cfbfa6",
+        "dte_090.csv": "3919bf33f4cd8e8e4e443d50c9934ffc6aaa22056cebecbe6bc41ca39ca78ee1",
+        "dte_120.csv": "0894f764905b7c253cd3af25b29f30b47bd445b5af08ce1ce6887a2b762b85ae"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Upper-bound optimisation failed: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-03",
+      "input_sha256": {
+        "dte_030.csv": null,
+        "dte_060.csv": null,
+        "dte_090.csv": null,
+        "dte_120.csv": null
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Missing archived chains"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-02",
+      "input_sha256": {
+        "dte_030.csv": "a0a64c5e2e0639ca118365ac020c4abe6112e33a6a57eeab82941016d5c89c76",
+        "dte_060.csv": "d9f81a841a7a19b4e744a3b05e48b2293c71ee3e1d1e74a24cb0181f800a2906",
+        "dte_090.csv": "4e22535aade439a698112518cc873b10aaeb2f1874be654faa9c1b4f7c9974d2",
+        "dte_120.csv": "1f25c065ab9c62d2c05dab6b5742e60332909e69d4c5c45dde0dee59980f0a7c"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-01",
+      "input_sha256": {
+        "dte_030.csv": "3eefada3b463b7dcca6b3b64cc123f2756981cb981e3a52ffebd7a284cfb5780",
+        "dte_060.csv": "0f1598e078570be54c8b37ce29c04e21bddc3beb1dc8c5fe1e136025b20fadf8",
+        "dte_090.csv": "12022a6a84451d09afc23877bd0fe8e1c625e8e17b66be5fcfd2d0995db16a63",
+        "dte_120.csv": "2e47b0f17f549321f4681c7d514efc624de9b1ebad28b712bed52a56f84a8035"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-31",
+      "input_sha256": {
+        "dte_030.csv": "24b1518eee55df7702559e52fefc6d7cdf83defde65ce20c4d213e55aa4042cc",
+        "dte_060.csv": "0b76402d1b295cec9ecdbe241f8541e336c112ed34aa6411900cb85560d047eb",
+        "dte_090.csv": "affe375adde01ea54860d7abd29c66d513bddf8bb7a75bdd53ca92f2fe8358bc",
+        "dte_120.csv": "a33982920df8ad11f00e8ed07afde5ba6d925a5e150b8a5aa773db39be764aa9"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "No option quotes remain after cleaning."
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-28",
+      "input_sha256": {
+        "dte_030.csv": "5e14c55caefca1cfe76b2e85479e33a026ff8fd048f7cf11d6f855d1233f12d3",
+        "dte_060.csv": "13e07c0a0b6e51b013105e95f426ad2491f06becda5d532add5c69b2acc31dee",
+        "dte_090.csv": "434ef669c53301746c570b0c8f71f4b8ba49c7e7186f0a0d73120e1ce9c97d0c",
+        "dte_120.csv": "1138a2fd46db788138ab00d8c2f32bd9a1a191041d2dedba089550620931cff4"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-09",
+      "observation_date": "2026-09-25",
+      "input_sha256": {
+        "dte_030.csv": "313c706bc71596c8f81931f154bd43a6041a8e410d8ed539a725dfc921f4a877",
+        "dte_060.csv": "7235ce3ec6e0b67f556e54853e52cd5dd67fedcc47c1980537cce9d184040f75",
+        "dte_090.csv": "0080ac38e6c95cc0d5fd96f0d3069d81590580165fff3ad314906f04952f04aa",
+        "dte_120.csv": "b9410c1b11a400d2ed083cf568220cabe84db6938b635682af0dd5f83b3233f4"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "failed",
+      "reason": "Upper-bound optimisation failed: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)"
+    },
+    {
+      "month": "2026-09",
+      "observation_date": "2026-09-24",
+      "input_sha256": {
+        "dte_030.csv": "e74e7cc63294334390860042d3b08487043188e97e8419a8706c6de7dbdd8014",
+        "dte_060.csv": "b8ca67b5c3ee18716664800d52102288ef3b025e9e7abc95e7260030d3241c0f",
+        "dte_090.csv": "28b6bdbd46089b5fd93e0f93d40e08d7606157c533f1bd6b960f00878b798cf6",
+        "dte_120.csv": "00d71f5a90113b3a6b7951c356c6f1ec24192495ca6cfade5253d92706aa5991"
+      },
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "observation_date": "2026-07-10",
+      "input_sha256": {
+        "dte_030.csv": "3cf50622fdaa227bfe2c45b5ee81f4ef66ba63e46b41ba4f3b8c9b23542d36da",
+        "dte_060.csv": "5b4903c815111023c677a3040ff7069a2d514dc7976705b3a1a24a2579961bd8",
+        "dte_090.csv": "aa036ddfbb5510974c9e43b79780b16cc83aa79858bb24c4b4b846c803be8d3b",
+        "dte_120.csv": "47319e1cbeb30330b2f612cf84f9040b3a4b67a3c7bbb3eed59598723d501afa"
+      },
+      "status": "success",
+      "month": "2026-07",
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177",
+      "reused": false
+    },
+    {
+      "observation_date": "2026-09-25",
+      "input_sha256": {
+        "dte_030.csv": "313c706bc71596c8f81931f154bd43a6041a8e410d8ed539a725dfc921f4a877",
+        "dte_060.csv": "7235ce3ec6e0b67f556e54853e52cd5dd67fedcc47c1980537cce9d184040f75",
+        "dte_090.csv": "0080ac38e6c95cc0d5fd96f0d3069d81590580165fff3ad314906f04952f04aa",
+        "dte_120.csv": "b9410c1b11a400d2ed083cf568220cabe84db6938b635682af0dd5f83b3233f4"
+      },
+      "status": "failed",
+      "reason": "Upper-bound optimisation failed: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+      "month": "2026-09",
+      "settings_sha256": "acd69c26791113f564b5c6f31f7e1151a1d57cc9a010953ebac83cbbd8b9b177"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-02",
+      "observation_date": "2026-02-27",
+      "input_sha256": {
+        "dte_030.csv": "404262248a889b3073f4d2e783a83abe0446383f3990b9c5320efa77a6423a5e",
+        "dte_060.csv": "c5da16c2659c5ccc6fe10edc237938657ec567d30da61661a9be3a17ad4ffbd2",
+        "dte_090.csv": "2f368fb8cfe75e8742c54e65ff9cbf7c98d2a7013fa5e1e73b7a3b98242e36b7",
+        "dte_120.csv": "9a459f7471a76193c520457343c2f8b40b5b8366ceb986e46e1f590f6773edcd"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-31",
+      "input_sha256": {
+        "dte_030.csv": "96856d7e934662bf507fe4468e903ec1db7edeabb3cbbe97013e2608f488d1b9",
+        "dte_060.csv": "54c4504e2f076a4ae996c224798773bbf08d15f46b72ae7b3dc2aa7279abbd1e",
+        "dte_090.csv": "79b2e00a9d95b6f37d65254334dcaebd740a99d020f55a63b4aac39f8bb0cacb",
+        "dte_120.csv": "264622e7fe4223195e2d4be0e0fdd547f5a2205030bc46606675a22cf4a71515"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-30",
+      "input_sha256": {
+        "dte_030.csv": "05a1bfaebbcc5fa0dea367948e60afb6e3bc193838b5b2b855b505f97c5bd0bb",
+        "dte_060.csv": "cf6d6035f680ed557bbe06eef77cefd3545b7fb7565c2b99a8cacefce7062478",
+        "dte_090.csv": "5e717dcac801105358b46cb267ffb16a04c11a489bcf0f8222c3c09bcf1c2844",
+        "dte_120.csv": "f37f39b71ba83e28a2e30c8dcfd6f3e8f2a1f5d4ef8f0fe0f600690eff8abf7b"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-27",
+      "input_sha256": {
+        "dte_030.csv": "b82fa71e5f98c8f6a7eaf6c0495ce6bb20664c57955fa261ae38d9b9e98d8253",
+        "dte_060.csv": "ffd55b86b4a0081bc4c81e655510833f941f6c3020e6221499d933150ee60b76",
+        "dte_090.csv": "0e01b0b4e25925545c320ea008442e3a1f813f8c3068849470f33644ef73f222",
+        "dte_120.csv": "319715bd5666b4c4b0893da2a219e85a385cd56d5431f6210b697bf302fcb122"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-26",
+      "input_sha256": {
+        "dte_030.csv": "7d889f4f0c47f29e58c66672ddaa6f6d8f81188b615936118cb34e5a5d701ce0",
+        "dte_060.csv": "fe18244bbff0d09ce5160c8ee3fd388c2c24dfa30920818dba063b1cec25ec58",
+        "dte_090.csv": "c8c6188a1309d5b6aaebf1283846ed2802a901c99867e02c029748debf270249",
+        "dte_120.csv": "e9b481dd0d6425369c2455746340536a89690bba38a968b2bf2d86601fafbaba"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-25",
+      "input_sha256": {
+        "dte_030.csv": "98fc1083f346810720a61cde72a94dd351de72870ad4ece6e4079aeaeb16ccb0",
+        "dte_060.csv": "c6899c53df057203b4dfdae01cda00f0d9b99e3d7f10b71fce532c4067fecb42",
+        "dte_090.csv": "d21bcef45ffd0eac8439fb2f61b0ff66992039996e6de55401a03ccc2f63567e",
+        "dte_120.csv": "00c365cbfd456bd47abdf181d8d7bb75e547f15d3e264b46558adbb8039950eb"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-24",
+      "input_sha256": {
+        "dte_030.csv": "809412b19581918fc81aa7fe8cba58db28b59a037372521f07a7012990ad3843",
+        "dte_060.csv": "a9f1c42caa1a926b11ea2c95849baccbf29b50e651c1f15db54dfdb54f19312f",
+        "dte_090.csv": "c9d3bf15b6d976bb4aafc33062b4228547e06e36cdd4713858a2a7549eb67ec9",
+        "dte_120.csv": "ac439d016122837ae3de229cb7012f002d8c0dcbb044ccfa46b095a710540ae1"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-23",
+      "input_sha256": {
+        "dte_030.csv": "a5b5d36d92105c308228958bcf8b4b2e6bcd778953834a6cd0dfa31c1e0c8166",
+        "dte_060.csv": "45e9324543fc02d10f07614fc8aa6dfd8d52e6db2f8b25d507dc6e97bcbce310",
+        "dte_090.csv": "6f2ab1e92fc92a9453d2477c03c3bafdaaa6eac845ce9dcc68a68c2c8d0700d7",
+        "dte_120.csv": "5bd71a048410a02c46369528d5740a48b95f7778c2c2566af32e12dc80d30be4"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-20",
+      "input_sha256": {
+        "dte_030.csv": "cb99e0c6c95ca3ef07ea32c2197a29bfc0e2530ab4e44d667240d33cd7b2a626",
+        "dte_060.csv": "d55acef4ab8c961077def632a52c304aed45a37b4ef9dc51f123d7e0bcf30e42",
+        "dte_090.csv": "9c355287b29c3e7b730b9801057dcca0636cb48cfcb608927221b8831fa7c4bc",
+        "dte_120.csv": "238aff9482857a6aa133602aba0044cee46455599c196169ba823baefca39b33"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-19",
+      "input_sha256": {
+        "dte_030.csv": "c541ba92f9b3e38ce9a37c22814a98ca50ebc804eb8ee5b0792f4569d852b0a1",
+        "dte_060.csv": "76aa18a265a39a5edac13398f5fb475a0e9fa29a6770cb42a3ded72b35da7a83",
+        "dte_090.csv": "f48700aebc66c1cb74cecb4cdf83d6c2a0e52d5d0d2e29a097b6dc851531858d",
+        "dte_120.csv": "40d7e95058f5d518c916f117c6b66bd274e14a7469603159f55c8e294741a993"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-18",
+      "input_sha256": {
+        "dte_030.csv": "0378da938aa6dfd26bf83cb7506841f66b3c2bed541cee1cb9632a3947d8b7b7",
+        "dte_060.csv": "7ab4f18802de4f80237984b346e765a97466a41dd016db75feacc8f6732e7491",
+        "dte_090.csv": "b801349eb29f44f4238cfff2fe5d08d8a651c5e1cc0a62c7737d289f224baab0",
+        "dte_120.csv": "68ff3bfc6ce065863af526f65b6fc297e685ae628123b5e2d7d19f7acdd40227"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-17",
+      "input_sha256": {
+        "dte_030.csv": "8fd3000a4a26bc77afcedc4d76e3a3a9ebdc558d644d0e391293a62faa990c1e",
+        "dte_060.csv": "76a865e8f8083a1446c89e59446ad44a1872111cd9f4a6d7cda6fa6e7787b14a",
+        "dte_090.csv": "d5b3cba0f561b916d27290f9538a80ba57363a203602bc3a1857f00597becc2d",
+        "dte_120.csv": "5758b4bb581a9a71bd427514e589508c343d091f4863a33eec61135b73571d71"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-16",
+      "input_sha256": {
+        "dte_030.csv": "59090d40ebf22f07940912c6d2dfcd66ec9b984b5d55e59ed874f838799d2cfb",
+        "dte_060.csv": "1ca986d18a18744b29817595139a74446123a51fdcff3337c89d8318e1f5bb45",
+        "dte_090.csv": "ef9f6b85264686ee26b8453c0ff0a9752b4600904e05c8acc61a0ffd9c679bf0",
+        "dte_120.csv": "d52cd63d3db1523f982e2f0185dcffe2c3f700aaa24c84d315e427f8831b58cd"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-13",
+      "input_sha256": {
+        "dte_030.csv": "fc4751b632919aaa8f0bd8767035a593558c0ec8ac96160fa5e2269387edfefc",
+        "dte_060.csv": "eca18288f3956fdfdb1b7d86279a48957978a1003547169ce036927ad81fa812",
+        "dte_090.csv": "deaf32a9f287289d16bf149c3566f58a31daa915c130864ecd94b052da672da4",
+        "dte_120.csv": "7ed81b8dcd86e6600441e7cb4a3b37575f90fa5e3dcb53031c084a493e3497b4"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-12",
+      "input_sha256": {
+        "dte_030.csv": "97f568541b8e05b3d02c21923f837ffb973c56c0fe143fead6d38c6e3542d561",
+        "dte_060.csv": "057aced12ec6aa318022de7e0accaaa1f5bb479992fd3125d7ebebd902736922",
+        "dte_090.csv": "326342c92ddf5d9516bf0f2fab15e2e8cd7d03e558833813c4a483f1512d4da8",
+        "dte_120.csv": "6ebe99dc176cc324b2f8b997610b970cd5dfa9b30e29a808e4925ea4b46c8a70"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-11",
+      "input_sha256": {
+        "dte_030.csv": "7d35e4c1f19efb27bf5635c5b0ccac3142c989bd2bdab08728ff454f70153e37",
+        "dte_060.csv": "77aabe8315949c26446a64713d978cb9b61342cf83d1a0779b7f8439eb38000e",
+        "dte_090.csv": "d33123ef8f98a25547400ecde2cfc39387c94f38b2a0d8c433c1b59e1404b063",
+        "dte_120.csv": "1b044c5b4c8fda354def94157acb3a53143ea36d6a4b5f3c1936a7098e804d11"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-10",
+      "input_sha256": {
+        "dte_030.csv": "974ccca083e7690c81cb448712478f66b8f313819643e65b6fdf8e752ee209e7",
+        "dte_060.csv": "db7cee7a232e7245f70afea34b6eeb0e109f2e5f5318a6ee9a12bd0515356a39",
+        "dte_090.csv": "3f9dddf3dd4c36081e34e38845fb6e27dafd923a2bd48f91e35dbf3c721667bf",
+        "dte_120.csv": "2ad2e253d0030dc38c565d1de58378f72f529e6268c210074b8966438d5494a7"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-30",
+      "input_sha256": {
+        "dte_030.csv": "2434ec52b4a145c9964e2b5a4a54a2aa0af5e720fc6b05501fd536001a16db6b",
+        "dte_060.csv": "b417d0b881fdc6dfd7161bc99aad80636b9e70acb853d0ec8ae8bd9f53cb1e73",
+        "dte_090.csv": "fb025f8bb5c251af5656035f6c174cc766fe3c38576584bd29f79ab52ec620e4",
+        "dte_120.csv": "f27cdf138ab2790dc107882adaaf599f1c883d883abd8dee7292cff207411104"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-29",
+      "input_sha256": {
+        "dte_030.csv": "d3b4b11699fc1d676b0074585ca2cc25cfa6c8b83d6b0d3a2204e02ec5ccaae0",
+        "dte_060.csv": "a6072b1ca4ee157d2bc03a1a512df491d5a7ff604427931f4f8d9067c7b3b06f",
+        "dte_090.csv": "a5421e4a7a1eff2587085bbeb513dfc95eaec7ce15e979eaa60e24f1b24d0661",
+        "dte_120.csv": "34f9f58bd5a4d5d7964e5a5208eb6b39b40110e9ee74e24fbfa1b22eb55d1a46"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-28",
+      "input_sha256": {
+        "dte_030.csv": "aeeca2ce4bd66c4c38bd89d72d090a1707e92ed92c7ce10aadaef45b03576538",
+        "dte_060.csv": "a7b44af76c3aa1d5cac9301fe9279979d2cc56373e1871b88d3f374b20c86b71",
+        "dte_090.csv": "7fb6ba4c9363ff63870dda359b3e8fab777ef3eae24722bb70281b81a66c9fe8",
+        "dte_120.csv": "55452b73f16ecbc557c68308426f045be5927903e82ff52093f8689c042d912a"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-05",
+      "observation_date": "2026-05-29",
+      "input_sha256": {
+        "dte_030.csv": "33ff8cc6bf43651f183ea4918b626be25f4e6c36eee3aa29d07020e9ba28ce53",
+        "dte_060.csv": "73188d0778fa5430f2e8758e301bad5f41f988a68ab14dbd97eeefbba675f0ba",
+        "dte_090.csv": "e2c404d23abadcdbaee514d51fb46c195620bb4e7d9caeb1e93996f6e58ccd37",
+        "dte_120.csv": "3531f34fa477af821cd47329c4fd70284899d029ce73fff76f1c4ba42b5348c9"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-06",
+      "observation_date": "2026-06-30",
+      "input_sha256": {
+        "dte_030.csv": "09d7fcc954ec1c4750e081b879082d03edc8040f63dcb2bc2146738921855393",
+        "dte_060.csv": "7fe97abc5a16c6dc77d38f0f18df236411eada27b076a863deb90633a59f12f6",
+        "dte_090.csv": "8290b415845da0fc3dc72877cd9e540f644c12ca1e5f202f6b9597188dff1474",
+        "dte_120.csv": "45d91e63217b402fdb52fa2958a82e1a8de02fdad64f352f05747b1353d57991"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Upper-bound optimisation failed: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)"
+    },
+    {
+      "month": "2026-06",
+      "observation_date": "2026-06-29",
+      "input_sha256": {
+        "dte_030.csv": "794e4474eed616bfb19799af6d04e73c5a574055c95aceae048992d61d6e6490",
+        "dte_060.csv": "5832b8f938cb603d3bb51214f50bcc8cc008086b4260644545da4174f50653c5",
+        "dte_090.csv": "17a8144d03d37b8bc8cddaf82051a88e11127d078bbb76afb05c27ff55d1f22d",
+        "dte_120.csv": "585922d8a37efe353df7cda5011df421fbd4d9e6a1c9bdd725e12a0728fcb48f"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": false
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-31",
+      "input_sha256": {
+        "dte_030.csv": "a2bdad75f579696d11f52404c20985f7f622baaef772d472365224a2eb3e4eef",
+        "dte_060.csv": "6f6f9def0742a42016c887138633634705980cb7dab88662746701e81c6d87b7",
+        "dte_090.csv": "09e25c8a8c031b608c4d570245af6da8ef8521dd73d365fcdaea42fa845d54a8",
+        "dte_120.csv": "99808034da0277e69b6d113211224d785fe2f140e73e7cbe849a19d3c30fbce0"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-30",
+      "input_sha256": {
+        "dte_030.csv": "a42cf50884bcf6c1ec2c51047d11b898490bcb2174d3947ea12cc15a884582cd",
+        "dte_060.csv": "40e766f800dbdedafd1f26c8c950d6db1a9b36d12fb15146b388df8a50b4b622",
+        "dte_090.csv": "f05e9dee8d785a4bf4c23c817df546c8cee37628384ef5b5e0d879f0dfe793f3",
+        "dte_120.csv": "7dc8346602bbf8efcc78407e5503397182bf92dbe32877479368f2fb84260dc5"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-29",
+      "input_sha256": {
+        "dte_030.csv": "8ad0f4d46f6e05150bc886b484cfde935304ffadcaae1849701d08e7c125d4a7",
+        "dte_060.csv": "76e4d91c2468e51e289c0a72a5d5273a0e1c0f78619f04d6c3ba78ae7c7b052c",
+        "dte_090.csv": "177332f2e0536c08948ce3261b48220ff54333352f2aa7f78772930efd41fc50",
+        "dte_120.csv": "59278af1213b4cc81e4861b7ec8814213367c078ab586a02eb821a3fe34e8172"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-28",
+      "input_sha256": {
+        "dte_030.csv": "465a6b8c2d280a460a2726d504bc2988c0e4b090110eda01a9cf7ba4cf25159e",
+        "dte_060.csv": "bdf582f640c0e4d12eb411e7881fdf3c8072ebb858c069d3dfa11313cf646583",
+        "dte_090.csv": "d9818937a6d316cbb1a581886dbe8a98be67cb59bd86eb5dfc2087df9bf6026f",
+        "dte_120.csv": "25a03539688422caf8ed9ebd34f9c35398c8722d7e328faba19f0f81f8877f9a"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-27",
+      "input_sha256": {
+        "dte_030.csv": "8ab42358780e6c974668d762b1d0e40891dfb7f6e5a14844609f82f2f6955a22",
+        "dte_060.csv": "fd0457ede82f120b1c45dc51c148803e1d40d397ef051ab20bee79d2b9d33c43",
+        "dte_090.csv": "9771d69efa3bde468a1e2f2ff41c671381e9552b224708fc3cf3285121ffbece",
+        "dte_120.csv": "112bda2219c286fee1dd4013596a145e54c25af73dd2ed7fd393c7da76ba5c7f"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-24",
+      "input_sha256": {
+        "dte_030.csv": "072fb9c37b4305754e873931b2396e293d82cb8832ad4bbf65c69e4b82c17df3",
+        "dte_060.csv": "f7aafd2f8385f72244973c945b8bfc63eddf6bd277554e04addbb1eb8309c018",
+        "dte_090.csv": "bdb5b670d63333d1f06409740c8ea4799443b38bf3f7148305fdefaf9f82bfa4",
+        "dte_120.csv": "fcd866fd9eb296ab77985330c90140ec2671649aef962ca892e3f170f08480c6"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-23",
+      "input_sha256": {
+        "dte_030.csv": "2598130a15108a03a22646e30e376eae4de8a01df8132fea518a5c6b95713825",
+        "dte_060.csv": "af44f751521b0396811ab533554b6527be98a887705c6340a6285b0177fc1b28",
+        "dte_090.csv": "3daf4f34b0cba78855f18a3fc243739a29587254fe755992865d5331b0e88649",
+        "dte_120.csv": "22d8921f1a20a4791ae19a0250d542b7aeaa92a595be2cf3678c192c80171669"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-22",
+      "input_sha256": {
+        "dte_030.csv": "cf82417d706706356b38a00de4316e136a0ec7d3ff212079fad272767d6e89b2",
+        "dte_060.csv": "43b7944222aa37a75f3f176a16a600e0231fd5e344eac7f2f663072db8a56c6e",
+        "dte_090.csv": "dcd5a63053d40364768e5689faa553dcf7cfa6ac9fd331a5c7ae8e54113e5c40",
+        "dte_120.csv": "106a0c0e638a1c2a5f5d090ab55a8304c82780e30d0f9ccd2bc6a36cfd2b71e5"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-21",
+      "input_sha256": {
+        "dte_030.csv": "bc4d6de417a78be5f5963569447002306836709c180d24cc752ad68b8c6725e5",
+        "dte_060.csv": "10b6539bdcb011e7214daad0c79c5acb007d1a95248518e0126cac111a3478be",
+        "dte_090.csv": "31b6e65fd4741d6a105a09ed8bbd719fe6c4cf403c6f7f0537cad89f33de95bc",
+        "dte_120.csv": "0c4c21aa773a5918af76b7de73d7f41352027ca5b7c87007eba333925a4a29ce"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-20",
+      "input_sha256": {
+        "dte_030.csv": "161ac99e0b75133aff1ff0b3fb928aef14803f4a9a2543465f7f156bc3e93554",
+        "dte_060.csv": "11206052fd949aece28d4b12a4521ef89f1562b2d8f0b45da18cb6072322ddde",
+        "dte_090.csv": "d970edf15eb587b829b262576add05f438b734b81143366c725abb67a05b078c",
+        "dte_120.csv": "4f674054f9247ea2082d9a5516f1f716fe6f48b178c8ea956565556ef4ccfce8"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-17",
+      "input_sha256": {
+        "dte_030.csv": "f7260e3ec8685d6c78d0a0559474d29e2aedfdb6f61465bf10ce5859a444ecd5",
+        "dte_060.csv": "8c7d2b8b265a3ec29bfee095e3e786b78378ae30b75aefb71e94d1b33a691082",
+        "dte_090.csv": "4ce764ea427cf36aac04019a8d36464f2532c280b3040f6af95f174c428b66d4",
+        "dte_120.csv": "c830f3766234ff40b230bf07c1849e9579211689ee9301d5268cff727896b5bf"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-16",
+      "input_sha256": {
+        "dte_030.csv": "507b6b8ef48f28b5ff2f92fb3e27f936c1e913df914583d0e181c11661f67369",
+        "dte_060.csv": "c2fa96cb0d97c47047b3b6cc394915fe34fd25b45ada2f08dae3c58d7e7f812c",
+        "dte_090.csv": "bd703ae4700f049aa2ae6288b398a1e1a7c563a3181496af59e31436a9d5b1c4",
+        "dte_120.csv": "b67129cf7871d07575d1cfd056e8717bc8779abc5bc2aff5c432414e2c896c08"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-15",
+      "input_sha256": {
+        "dte_030.csv": "4392c597261878c0b99d98a3ef4c7d93cb25b0d5401f6474385973c2c6d0f534",
+        "dte_060.csv": "5efd1b2dfb31151ab8937d4bba21e8e757095ee5f912dfe3438ffec765b8d07c",
+        "dte_090.csv": "02b6512934c9e4c30e0fb320092ae249bba67889b8470a84a66dd6d912f01662",
+        "dte_120.csv": "0b85e9fdb21592de8d1b0b0485f3869bbb82b87626bf93a4083d1ed5b723f41e"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-14",
+      "input_sha256": {
+        "dte_030.csv": "73f1fd580739592913e57069916af24c4f9b0e73db2e121996f577198cecbff5",
+        "dte_060.csv": "07445d598a7bc1d804372706e305aa06644a5ab68e0fb8816b76a3680692f858",
+        "dte_090.csv": "08b00311435afff29c73e9b2d610886d5655e2d2522859a38ab70853b9d554fd",
+        "dte_120.csv": "3078fff0d8119ddf3d9455b1764a189c2d55171327d3e3312ff45d27fd7cf8fe"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-13",
+      "input_sha256": {
+        "dte_030.csv": "eedc0b76b3e9683854b7300ecee83c148043eb6fcccaff3580c0d2f010bbcad2",
+        "dte_060.csv": "da01fe540c0ce0ea0cb18fdfdfd6206db3bd7dfe3910f9adca81d1b6bc8cd0d3",
+        "dte_090.csv": "f0484a51f9dd6a3fd1a338c75cc1c0cb97908aaba8125d2cbc9c4cd01fb72b1b",
+        "dte_120.csv": "ccf0c0444ba20db1925b75d2fa7b614e3dfce27b955cde25240477db9d2f6307"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "Lower-bound optimisation failed: The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "month": "2026-01",
+      "observation_date": "2026-01-30",
+      "input_sha256": {
+        "dte_030.csv": "71c4ee479353f567563c5180f7f2b617b5b19a23eabac6bfe8547e3b9f780fe6",
+        "dte_060.csv": "37409730ef86033b562164b1d33a4f919602bb4079ef03aad3692086180b81c5",
+        "dte_090.csv": "a36d1d794abd002978b8aca4ee0943b8be2e43ba6b69c8c628e3c675672bbe25",
+        "dte_120.csv": "861b2f8fcf0274a1bf139f6700fc43bcbbf7bb56cf3bddb0dea5e4e3f03edf8f"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-02",
+      "observation_date": "2026-02-27",
+      "input_sha256": {
+        "dte_030.csv": "404262248a889b3073f4d2e783a83abe0446383f3990b9c5320efa77a6423a5e",
+        "dte_060.csv": "c5da16c2659c5ccc6fe10edc237938657ec567d30da61661a9be3a17ad4ffbd2",
+        "dte_090.csv": "2f368fb8cfe75e8742c54e65ff9cbf7c98d2a7013fa5e1e73b7a3b98242e36b7",
+        "dte_120.csv": "9a459f7471a76193c520457343c2f8b40b5b8366ceb986e46e1f590f6773edcd"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-03",
+      "observation_date": "2026-03-10",
+      "input_sha256": {
+        "dte_030.csv": "974ccca083e7690c81cb448712478f66b8f313819643e65b6fdf8e752ee209e7",
+        "dte_060.csv": "db7cee7a232e7245f70afea34b6eeb0e109f2e5f5318a6ee9a12bd0515356a39",
+        "dte_090.csv": "3f9dddf3dd4c36081e34e38845fb6e27dafd923a2bd48f91e35dbf3c721667bf",
+        "dte_120.csv": "2ad2e253d0030dc38c565d1de58378f72f529e6268c210074b8966438d5494a7"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-04",
+      "observation_date": "2026-04-28",
+      "input_sha256": {
+        "dte_030.csv": "aeeca2ce4bd66c4c38bd89d72d090a1707e92ed92c7ce10aadaef45b03576538",
+        "dte_060.csv": "a7b44af76c3aa1d5cac9301fe9279979d2cc56373e1871b88d3f374b20c86b71",
+        "dte_090.csv": "7fb6ba4c9363ff63870dda359b3e8fab777ef3eae24722bb70281b81a66c9fe8",
+        "dte_120.csv": "55452b73f16ecbc557c68308426f045be5927903e82ff52093f8689c042d912a"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-05",
+      "observation_date": "2026-05-29",
+      "input_sha256": {
+        "dte_030.csv": "33ff8cc6bf43651f183ea4918b626be25f4e6c36eee3aa29d07020e9ba28ce53",
+        "dte_060.csv": "73188d0778fa5430f2e8758e301bad5f41f988a68ab14dbd97eeefbba675f0ba",
+        "dte_090.csv": "e2c404d23abadcdbaee514d51fb46c195620bb4e7d9caeb1e93996f6e58ccd37",
+        "dte_120.csv": "3531f34fa477af821cd47329c4fd70284899d029ce73fff76f1c4ba42b5348c9"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-06",
+      "observation_date": "2026-06-30",
+      "input_sha256": {
+        "dte_030.csv": "09d7fcc954ec1c4750e081b879082d03edc8040f63dcb2bc2146738921855393",
+        "dte_060.csv": "7fe97abc5a16c6dc77d38f0f18df236411eada27b076a863deb90633a59f12f6",
+        "dte_090.csv": "8290b415845da0fc3dc72877cd9e540f644c12ca1e5f202f6b9597188dff1474",
+        "dte_120.csv": "45d91e63217b402fdb52fa2958a82e1a8de02fdad64f352f05747b1353d57991"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-07",
+      "observation_date": "2026-07-10",
+      "input_sha256": {
+        "dte_030.csv": "3cf50622fdaa227bfe2c45b5ee81f4ef66ba63e46b41ba4f3b8c9b23542d36da",
+        "dte_060.csv": "5b4903c815111023c677a3040ff7069a2d514dc7976705b3a1a24a2579961bd8",
+        "dte_090.csv": "aa036ddfbb5510974c9e43b79780b16cc83aa79858bb24c4b4b846c803be8d3b",
+        "dte_120.csv": "47319e1cbeb30330b2f612cf84f9040b3a4b67a3c7bbb3eed59598723d501afa"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-31",
+      "input_sha256": {
+        "dte_030.csv": "24b1518eee55df7702559e52fefc6d7cdf83defde65ce20c4d213e55aa4042cc",
+        "dte_060.csv": "0b76402d1b295cec9ecdbe241f8541e336c112ed34aa6411900cb85560d047eb",
+        "dte_090.csv": "affe375adde01ea54860d7abd29c66d513bddf8bb7a75bdd53ca92f2fe8358bc",
+        "dte_120.csv": "a33982920df8ad11f00e8ed07afde5ba6d925a5e150b8a5aa773db39be764aa9"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "failed",
+      "reason": "No option quotes remain after cleaning."
+    },
+    {
+      "month": "2026-08",
+      "observation_date": "2026-08-28",
+      "input_sha256": {
+        "dte_030.csv": "5e14c55caefca1cfe76b2e85479e33a026ff8fd048f7cf11d6f855d1233f12d3",
+        "dte_060.csv": "13e07c0a0b6e51b013105e95f426ad2491f06becda5d532add5c69b2acc31dee",
+        "dte_090.csv": "434ef669c53301746c570b0c8f71f4b8ba49c7e7186f0a0d73120e1ce9c97d0c",
+        "dte_120.csv": "1138a2fd46db788138ab00d8c2f32bd9a1a191041d2dedba089550620931cff4"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    },
+    {
+      "month": "2026-09",
+      "observation_date": "2026-09-25",
+      "input_sha256": {
+        "dte_030.csv": "313c706bc71596c8f81931f154bd43a6041a8e410d8ed539a725dfc921f4a877",
+        "dte_060.csv": "7235ce3ec6e0b67f556e54853e52cd5dd67fedcc47c1980537cce9d184040f75",
+        "dte_090.csv": "0080ac38e6c95cc0d5fd96f0d3069d81590580165fff3ad314906f04952f04aa",
+        "dte_120.csv": "b9410c1b11a400d2ed083cf568220cabe84db6938b635682af0dd5f83b3233f4"
+      },
+      "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+      "status": "success",
+      "reused": true
+    }
+  ],
+  "selected_dates": {
+    "2026-01": "2026-01-30",
+    "2026-02": "2026-02-27",
+    "2026-03": "2026-03-10",
+    "2026-04": "2026-04-28",
+    "2026-05": "2026-05-29",
+    "2026-06": "2026-06-30",
+    "2026-07": "2026-07-10",
+    "2026-08": "2026-08-28",
+    "2026-09": "2026-09-25"
+  },
+  "unusable_months": {},
+  "volatility_context": "Archived IV fields are not used; no IV inversion or calibration is performed.",
+  "settings_history": {
+    "df9425bc016527fd97cad8e2623bec34f41204671ae5de88f95b0aa7690e61e5": {
+      "settings": {
+        "months": [
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08",
+          "2026-09"
+        ],
+        "target_dtes": [
+          30,
+          60,
+          90,
+          120
+        ],
+        "n_x": 52,
+        "n_integral": 21,
+        "x_buffer_fraction_of_spot": 0.08,
+        "max_variables": 500000,
+        "solver": "Existing solve_asian_bounds / HiGHS IPM",
+        "solver_options": {
+          "time_limit": 180.0,
+          "run_crossover": "off",
+          "primal_feasibility_tolerance": 1e-08,
+          "dual_feasibility_tolerance": 1e-08,
+          "ipm_optimality_tolerance": 1e-09
+        },
+        "residual_tolerance": 1e-06,
+        "asian_kind": "call",
+        "strike": "spot",
+        "average": "Trapezoidal arithmetic average on observation date and four actual expirations"
+      },
+      "source_sha256": {
+        "scripts/run_historical_panel.py": "b14f11549ed3b79727f75556c21be67e77cb2aae3e792c125357fd6d6cbec62d",
+        "robust_pricing/asian/__init__.py": "4b00ff4b7d4493bfbb1cbb485a4984084eb417cefc5c6dc493a6f416ba0eb4ac",
+        "robust_pricing/asian/grid.py": "0fa6dea9433b7676f960f7ed4ca6fd2af8101158060c57596b88b31a0d6db2a8",
+        "robust_pricing/asian/payoff.py": "41e39a25d9623a34090974a4e662d0047450f74a2f80ac92d3969ed41721be82",
+        "robust_pricing/asian/solver.py": "799243a847e7cb6e7cb7683a2ec253d4e4ce644dcb3d73f2b1dda3fc1a7666dc",
+        "robust_pricing/asian/types.py": "621a5f416ef5469362ee7455c62b38646d43098c32921168f73b0c95efcc8f46",
+        "robust_pricing/asian/validation.py": "150fae5e6a253d15a77349eaa42491e18c9720a3f1ccf7d3ceb0252dca275fd0",
+        "market_data/cleaning.py": "8131ea937f15fdb73bc7166d2c29c1967140ebfe7870445e23955d2c50b88141",
+        "market_data/parity.py": "ad96be140dab5aff4bd9d029c43f2d9b9e86267f7461f13b9a6eb502ba66037c",
+        "market_data/transform.py": "6761adbe582c79eed326bfda88c6e2edfcc866f14d3fa2016c061a6d2bda36e2",
+        "scripts/run_convergence.py": "f321f64744fcac699cf4965ae20cad3f54262e83d2e895ffeec6c920fa8e5988"
+      }
+    },
+    "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703": {
+      "settings": {
+        "months": [
+          "2026-01",
+          "2026-02",
+          "2026-03",
+          "2026-04",
+          "2026-05",
+          "2026-06",
+          "2026-07",
+          "2026-08",
+          "2026-09"
+        ],
+        "target_dtes": [
+          30,
+          60,
+          90,
+          120
+        ],
+        "n_x": 52,
+        "n_integral": 21,
+        "x_buffer_fraction_of_spot": 0.08,
+        "max_variables": 500000,
+        "solver": "Existing solve_asian_bounds / HiGHS IPM",
+        "solver_options": {
+          "time_limit": 180.0,
+          "run_crossover": "choose",
+          "primal_feasibility_tolerance": 1e-08,
+          "dual_feasibility_tolerance": 1e-08,
+          "ipm_optimality_tolerance": 1e-09
+        },
+        "residual_tolerance": 1e-06,
+        "asian_kind": "call",
+        "strike": "spot",
+        "average": "Trapezoidal arithmetic average on observation date and four actual expirations"
+      },
+      "source_sha256": {
+        "scripts/run_historical_panel.py": "326c9479799b169a86b4330d7da2b2d10ee99d28c664a7b26d5edc86bac8de73",
+        "robust_pricing/asian/__init__.py": "4b00ff4b7d4493bfbb1cbb485a4984084eb417cefc5c6dc493a6f416ba0eb4ac",
+        "robust_pricing/asian/grid.py": "0fa6dea9433b7676f960f7ed4ca6fd2af8101158060c57596b88b31a0d6db2a8",
+        "robust_pricing/asian/payoff.py": "41e39a25d9623a34090974a4e662d0047450f74a2f80ac92d3969ed41721be82",
+        "robust_pricing/asian/solver.py": "799243a847e7cb6e7cb7683a2ec253d4e4ce644dcb3d73f2b1dda3fc1a7666dc",
+        "robust_pricing/asian/types.py": "621a5f416ef5469362ee7455c62b38646d43098c32921168f73b0c95efcc8f46",
+        "robust_pricing/asian/validation.py": "150fae5e6a253d15a77349eaa42491e18c9720a3f1ccf7d3ceb0252dca275fd0",
+        "market_data/cleaning.py": "8131ea937f15fdb73bc7166d2c29c1967140ebfe7870445e23955d2c50b88141",
+        "market_data/parity.py": "ad96be140dab5aff4bd9d029c43f2d9b9e86267f7461f13b9a6eb502ba66037c",
+        "market_data/transform.py": "6761adbe582c79eed326bfda88c6e2edfcc866f14d3fa2016c061a6d2bda36e2",
+        "scripts/run_convergence.py": "f321f64744fcac699cf4965ae20cad3f54262e83d2e895ffeec6c920fa8e5988"
+      }
+    }
+  },
+  "updated_utc": "2026-10-04T15:44:44.754393+00:00",
+  "statistics": {
+    "successful_months": 9,
+    "mean_width_over_spot": 0.005126875676185642,
+    "median_width_over_spot": 0.005144757536658672,
+    "min_width_over_spot": 0.004827161945294739,
+    "max_width_over_spot": 0.005482857519242692,
+    "std_width_over_spot": 0.00017988256387497056
+  },
+  "revalidation": {
+    "method": "Exact compiled-LP equivalence against the original numerical source, with archived-input, market, grid and residual checks",
+    "reference_settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+    "reference_source_sha256": {
+      "scripts/run_historical_panel.py": "326c9479799b169a86b4330d7da2b2d10ee99d28c664a7b26d5edc86bac8de73",
+      "robust_pricing/asian/__init__.py": "4b00ff4b7d4493bfbb1cbb485a4984084eb417cefc5c6dc493a6f416ba0eb4ac",
+      "robust_pricing/asian/grid.py": "0fa6dea9433b7676f960f7ed4ca6fd2af8101158060c57596b88b31a0d6db2a8",
+      "robust_pricing/asian/payoff.py": "41e39a25d9623a34090974a4e662d0047450f74a2f80ac92d3969ed41721be82",
+      "robust_pricing/asian/solver.py": "799243a847e7cb6e7cb7683a2ec253d4e4ce644dcb3d73f2b1dda3fc1a7666dc",
+      "robust_pricing/asian/types.py": "621a5f416ef5469362ee7455c62b38646d43098c32921168f73b0c95efcc8f46",
+      "robust_pricing/asian/validation.py": "150fae5e6a253d15a77349eaa42491e18c9720a3f1ccf7d3ceb0252dca275fd0",
+      "market_data/cleaning.py": "8131ea937f15fdb73bc7166d2c29c1967140ebfe7870445e23955d2c50b88141",
+      "market_data/parity.py": "ad96be140dab5aff4bd9d029c43f2d9b9e86267f7461f13b9a6eb502ba66037c",
+      "market_data/transform.py": "6761adbe582c79eed326bfda88c6e2edfcc866f14d3fa2016c061a6d2bda36e2",
+      "scripts/run_convergence.py": "f321f64744fcac699cf4965ae20cad3f54262e83d2e895ffeec6c920fa8e5988"
+    },
+    "compiled_lp_sha256": {
+      "2026-01-30": "47b88668ec4cb5fc34ffa148a25bdb9069c9888e2c4502882290304244cfe2f8",
+      "2026-02-27": "2d93c9e27c43715192c9aaada9c996b7dc2fa7ea37c5684df46cf8e09084b53b",
+      "2026-03-10": "19127aacfaa86486c3bcdb621e61748d8fd519da1973527ac3dbaef8b29ed56a",
+      "2026-04-28": "c06a3417d5b2599a56c8d5b5cf68c5c7ed3fa03e537b2c1e9d7b527cee77391e",
+      "2026-05-29": "02d08de6c162687e68e6001ca03f2ed52c29d46fd42c29c31cac9915893601cc",
+      "2026-06-30": "312f0ef45eaf8b50b13634d56136a5bfe721824065a745fd9995f3f44890fe09",
+      "2026-07-10": "414c993fec0fd73270babb62dc75f35f751baeecd07f3f72934e5a943029f09a",
+      "2026-08-28": "88d38bfc147f13d17eb1e28dc4c5cdf7071d86bd646136d512105e26346df59f",
+      "2026-09-25": "475652e1b453b6184ce124825136f9777f5782640ea68235579ee8085b5d72bc"
+    }
+  }
+}

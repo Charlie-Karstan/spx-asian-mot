@@ -1,0 +1,128 @@
+{
+  "settings_sha256": "f2c969ae1eeb5d990ab0caf425a6647e6f4c09ac7ae5cb43c9f1c5292936be46",
+  "input_sha256": {
+    "dte_030.csv": "aeeca2ce4bd66c4c38bd89d72d090a1707e92ed92c7ce10aadaef45b03576538",
+    "dte_060.csv": "a7b44af76c3aa1d5cac9301fe9279979d2cc56373e1871b88d3f374b20c86b71",
+    "dte_090.csv": "7fb6ba4c9363ff63870dda359b3e8fab777ef3eae24722bb70281b81a66c9fe8",
+    "dte_120.csv": "55452b73f16ecbc557c68308426f045be5927903e82ff52093f8689c042d912a"
+  },
+  "settings": {
+    "months": [
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09"
+    ],
+    "target_dtes": [
+      30,
+      60,
+      90,
+      120
+    ],
+    "n_x": 52,
+    "n_integral": 21,
+    "x_buffer_fraction_of_spot": 0.08,
+    "max_variables": 500000,
+    "solver": "Existing solve_asian_bounds / HiGHS IPM",
+    "solver_options": {
+      "time_limit": 180.0,
+      "run_crossover": "choose",
+      "primal_feasibility_tolerance": 1e-08,
+      "dual_feasibility_tolerance": 1e-08,
+      "ipm_optimality_tolerance": 1e-09
+    },
+    "residual_tolerance": 1e-06,
+    "asian_kind": "call",
+    "strike": "spot",
+    "average": "Trapezoidal arithmetic average on observation date and four actual expirations"
+  },
+  "row": {
+    "month": "2026-04",
+    "observation_date": "2026-04-28",
+    "spot": 7138.7998,
+    "strike": 7138.7998,
+    "expiration_30": "2026-05-28",
+    "expiration_60": "2026-06-30",
+    "expiration_90": "2026-07-31",
+    "expiration_120": "2026-08-21",
+    "actual_dte_30": 30,
+    "actual_dte_60": 63,
+    "actual_dte_90": 94,
+    "actual_dte_120": 115,
+    "n_quotes": 480,
+    "lower": 139.635880782097,
+    "upper": 175.9101239288278,
+    "width": 36.27424314673081,
+    "lower_over_spot": 0.019560134013296884,
+    "upper_over_spot": 0.02464141436335388,
+    "width_over_spot": 0.005081280350056996,
+    "width_pct_spot": 0.5081280350056996,
+    "n_x": 52,
+    "n_integral": 21,
+    "runtime_seconds": 23.650293957907706,
+    "max_equality_residual_lower": 5.414615504487948e-14,
+    "max_inequality_violation_lower": 5.684341886080802e-14,
+    "max_equality_residual_upper": 2.843558721821182e-14,
+    "max_inequality_violation_upper": 4.263256414560601e-13,
+    "terminal_discount": 0.9871996927885531,
+    "terminal_carry": 1.0098437185496922,
+    "status": "success"
+  },
+  "market": {
+    "times": [
+      0.0,
+      0.0821917808219178,
+      0.1726027397260274,
+      0.25753424657534246,
+      0.3150684931506849
+    ],
+    "carry": [
+      1.0,
+      1.0023494055819429,
+      1.0051025130190328,
+      1.0082699040665932,
+      1.0098437185496922
+    ],
+    "discount": [
+      1.0,
+      0.9966002192899723,
+      0.9931388942458516,
+      0.9895147973546661,
+      0.9871996927885531
+    ],
+    "x_min": 6088.250491423304,
+    "x_max": 8153.290353021291,
+    "parity": [
+      {
+        "expiration": "2026-05-28",
+        "n_pairs": 60,
+        "rmse": 0.0972036336319951
+      },
+      {
+        "expiration": "2026-06-30",
+        "n_pairs": 60,
+        "rmse": 0.056197278243881245
+      },
+      {
+        "expiration": "2026-07-31",
+        "n_pairs": 60,
+        "rmse": 0.0461244121388826
+      },
+      {
+        "expiration": "2026-08-21",
+        "n_pairs": 60,
+        "rmse": 0.03424792815571712
+      }
+    ],
+    "n_variables": 173264,
+    "n_equalities": 6864,
+    "n_inequalities": 960
+  },
+  "generated_with_settings_sha256": "b3883f0f50a0812cbcc24d9072c18e9a71bad8e1c2879530c8ad3419bc2fd703",
+  "compiled_lp_sha256": "c06a3417d5b2599a56c8d5b5cf68c5c7ed3fa03e537b2c1e9d7b527cee77391e"
+}

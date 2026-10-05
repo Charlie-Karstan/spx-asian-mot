@@ -1,0 +1,103 @@
+{
+  "contract": {
+    "observation_date": "2026-09-25",
+    "expirations": [
+      "2026-10-16",
+      "2026-10-30",
+      "2026-11-20",
+      "2026-12-18"
+    ],
+    "spot": 7743.4102,
+    "asian_strike": 7743.4102,
+    "asian_kind": "call",
+    "times": [
+      0.0,
+      0.0575342465753424,
+      0.0958904109589041,
+      0.1534246575342465,
+      0.2301369863013698
+    ],
+    "carry": [
+      1.0,
+      1.0018648773075702,
+      1.0033934491553056,
+      1.0052329101610806,
+      1.007910799579794
+    ],
+    "discount": [
+      1.0,
+      0.9975845650084272,
+      0.995874486613876,
+      0.99353525819764,
+      0.9895526588848572
+    ],
+    "terminal_discount": 0.9895526588848572,
+    "average_definition": "sum(0.5*(S[k]+S[k+1])*dt[k]) / (times[-1]-times[0])"
+  },
+  "grid": {
+    "n_x": 50,
+    "n_integral": 21,
+    "x_min": 6965.5237959891365,
+    "x_max": 8444.879392852317
+  },
+  "input_sha256": {
+    "SPXW_clean.csv": "c220b41c5817a4e0cefa3499717d00b18484e51247119db8cfb278f9ed381c40",
+    "term_structure.csv": "e2d8471e19f5df53273c9622382bb454f2c76649e37b87de98b6842b1867353c",
+    "mot_bounds.json": "dfa38e66cd912270dd0e3085b2e62c8c570ff4de0aefc12735d76df5e6503402"
+  },
+  "experiments": [
+    {
+      "name": "full",
+      "n_maturities": 4,
+      "n_quotes": 320,
+      "vanilla_maturities": "[0.0575342465753424, 0.0958904109589041, 0.1534246575342465, 0.2301369863013698]",
+      "lower": 104.8308969645844,
+      "upper": 138.3805085782622,
+      "width": 33.54961161367781,
+      "status": "success",
+      "n_x": 50,
+      "n_integral": 21,
+      "x_min": 6965.5237959891365,
+      "x_max": 8444.879392852317,
+      "total_time": 149.20335683401208,
+      "max_eq_residual": 6.007694342002878e-14,
+      "max_ineq_violation": 5.684341886080802e-14
+    },
+    {
+      "name": "reduced",
+      "n_maturities": 2,
+      "n_quotes": 160,
+      "vanilla_maturities": "[0.0958904109589041, 0.2301369863013698]",
+      "lower": 93.48140701403555,
+      "upper": 158.17415261705435,
+      "width": 64.69274560301879,
+      "status": "success",
+      "n_x": 50,
+      "n_integral": 21,
+      "x_min": 6965.5237959891365,
+      "x_max": 8444.879392852317,
+      "total_time": 100.12205679202452,
+      "max_eq_residual": 2.153269103249684e-14,
+      "max_ineq_violation": 2.8421709430404007e-13
+    },
+    {
+      "name": "final_only",
+      "n_maturities": 1,
+      "n_quotes": 80,
+      "vanilla_maturities": "[0.2301369863013698]",
+      "lower": 46.95967193832135,
+      "upper": 193.42402444817264,
+      "width": 146.4643525098513,
+      "status": "success",
+      "n_x": 50,
+      "n_integral": 21,
+      "x_min": 6965.5237959891365,
+      "x_max": 8444.879392852317,
+      "total_time": 107.7831791669596,
+      "max_eq_residual": 1.1197824802486041e-14,
+      "max_ineq_violation": 5.684341886080802e-14
+    }
+  ],
+  "numerical_scaling": "Positive row normalization; objective in spot units; HiGHS dual simplex; identical LP",
+  "baseline_reproduced": true
+}
