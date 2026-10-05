@@ -138,7 +138,7 @@ $$
 
 removes deterministic carry so that the normalized asset satisfies the martingale condition
 
-$$
+```math
 \mathbb{E}^{\mathbb Q}
 \left[
 X_{t_{k+1}}
@@ -147,7 +147,7 @@ X_{t_{k+1}}
 \right]
 =
 X_{t_k}.
-$$
+```
 
 Because the Asian payoff depends on the running average, the numerical MOT state is augmented from the current price state to
 
